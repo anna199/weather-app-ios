@@ -10,7 +10,36 @@ import GooglePlaces
 
 
 
-class ViewController: UIViewController , UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
+class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
+    
+    var cities = [City]()
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cities.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "CityTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CityTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        // Fetches the appropriate meal for the data source layout.
+        let meal = cities[indexPath.row]
+        
+        cell.nameLabel.text = meal.name
+       // cell.photoImageView.image = meal.photo
+       // cell.ratingControl.rating = meal.rating
+        
+        return cell
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
     /**
      * Called when an autocomplete request returns an error.
      * @param error the error that was received.
@@ -46,6 +75,22 @@ class ViewController: UIViewController , UISearchBarDelegate , LocateOnTheMap,GM
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        loadData()
+    }
+    func loadData(){
+        guard let meal1 = City(name: "Caprese Salad", lat: "100", lon: "10") else {
+            fatalError("Unable to instantiate meal1")
+        }
+        
+       /* guard let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
+            fatalError("Unable to instantiate meal2")
+        }
+        
+        guard let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
+            fatalError("Unable to instantiate meal2")
+        }*/
+        
+        cities += [meal1]
     }
     
     override func viewDidAppear(_ animated: Bool) {

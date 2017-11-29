@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2569ADE31FCE837900E6C5D4 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2569ADE21FCE837900E6C5D4 /* City.swift */; };
+		2569ADE51FCE863F00E6C5D4 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2569ADE41FCE863F00E6C5D4 /* CityTableViewCell.swift */; };
 		256CC2BD1FCE32EC00E8DB2C /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256CC2BC1FCE32EC00E8DB2C /* SearchResultsController.swift */; };
 		2584B6D01FCE21850052D771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584B6CF1FCE21850052D771 /* AppDelegate.swift */; };
 		2584B6D21FCE21850052D771 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584B6D11FCE21850052D771 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		1C32561FAAD45248A32A8172 /* Pods-trial weather app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trial weather app.release.xcconfig"; path = "Pods/Target Support Files/Pods-trial weather app/Pods-trial weather app.release.xcconfig"; sourceTree = "<group>"; };
+		2569ADE21FCE837900E6C5D4 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		2569ADE41FCE863F00E6C5D4 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		256CC2BC1FCE32EC00E8DB2C /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		2584B6CC1FCE21850052D771 /* trial weather app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "trial weather app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2584B6CF1FCE21850052D771 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				2584B6D81FCE21850052D771 /* LaunchScreen.storyboard */,
 				2584B6DB1FCE21850052D771 /* Info.plist */,
 				256CC2BC1FCE32EC00E8DB2C /* SearchResultsController.swift */,
+				2569ADE21FCE837900E6C5D4 /* City.swift */,
+				2569ADE41FCE863F00E6C5D4 /* CityTableViewCell.swift */,
 			);
 			path = "trial weather app";
 			sourceTree = "<group>";
@@ -347,6 +353,8 @@
 			files = (
 				2584B6D21FCE21850052D771 /* ViewController.swift in Sources */,
 				256CC2BD1FCE32EC00E8DB2C /* SearchResultsController.swift in Sources */,
+				2569ADE51FCE863F00E6C5D4 /* CityTableViewCell.swift in Sources */,
+				2569ADE31FCE837900E6C5D4 /* City.swift in Sources */,
 				2584B6D01FCE21850052D771 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
