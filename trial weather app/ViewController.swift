@@ -85,7 +85,13 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //loadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadData()
+        //self.tableView.reloadData()
+        
     }
     func loadData(){
         if let savedCities = loadCities() {
@@ -95,12 +101,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             // Load the sample data.
             //loadSampleMeals()
         }
-        guard let meal1 = City(name: "Caprese Salad", lat: "100", lon: "10") else {
-            fatalError("Unable to instantiate meal1")
-        }
-        
-        
-        cities += [meal1]
     }
     private func loadCities() -> [City]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: City.ArchiveURL.path) as? [City]
@@ -136,11 +136,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
      */
     @IBAction func searchWithAddress(_ sender: AnyObject) {
         let searchController = UISearchController(searchResultsController: searchResultController)
-        
         searchController.searchBar.delegate = self
         self.present(searchController, animated:true, completion: nil)
-        
-        
+       cities.removeAll()
+        loadData()
+        self.tableView.reloadData()
     }
     
     /**
@@ -151,9 +151,16 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
      - parameter title: title of address location
      */
     func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
-        
-    
+        /*cities.removeAll()
+        loadData()
+        self.tableView.reloadData()*/
+        DispatchQueue.main.async { () -> Void in
+            
+            self.cities.removeAll()
+            self.loadData()
+            self.tableView.reloadData()
         }
+    }
     
     
     /**
@@ -167,10 +174,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         gmsFetcher?.sourceTextHasChanged(searchText)
         
     }
-    
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

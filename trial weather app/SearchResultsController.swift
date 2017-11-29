@@ -84,6 +84,7 @@ class SearchResultsController: UITableViewController {
                     let newCity = City(name: name, lat: String(lat), lon: String(lon))
                     self.cities.append(newCity!)
                     self.saveCities()
+                    self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
                 }
                 
             }catch {
