@@ -38,6 +38,16 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         
         return cell
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            cities.remove(at: indexPath.row)
+            saveCities()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     /**
@@ -78,19 +88,30 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         loadData()
     }
     func loadData(){
+        if let savedCities = loadCities() {
+            cities += savedCities
+        }
+        else {
+            // Load the sample data.
+            //loadSampleMeals()
+        }
         guard let meal1 = City(name: "Caprese Salad", lat: "100", lon: "10") else {
             fatalError("Unable to instantiate meal1")
         }
         
-       /* guard let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
-            fatalError("Unable to instantiate meal2")
-        }
-        
-        guard let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
-            fatalError("Unable to instantiate meal2")
-        }*/
         
         cities += [meal1]
+    }
+    private func loadCities() -> [City]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: City.ArchiveURL.path) as? [City]
+    }
+    private func saveCities() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(cities, toFile: City.ArchiveURL.path)
+        if isSuccessfulSave {
+            print("Save successfully")
+        } else {
+            print("Not Save Successfully!!!")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -17,9 +17,16 @@ class SearchResultsController: UITableViewController {
     var searchResults: [String]!
     var delegate: LocateOnTheMap!
     
+    var cities = [City]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchResults = Array()
+        if let savedCities = loadCities() {
+            cities += savedCities
+        }else{
+            
+        }
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         
     }
@@ -72,7 +79,11 @@ class SearchResultsController: UITableViewController {
                     let lon =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lng")) as! Double
                     // 4
                     self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
+                    let name = self.searchResults[indexPath.row]
                     print(lat, lon, self.searchResults[indexPath.row])
+                    let newCity = City(name: name, lat: String(lat), lon: String(lon))
+                    self.cities.append(newCity!)
+                    self.saveCities()
                 }
                 
             }catch {
@@ -82,7 +93,17 @@ class SearchResultsController: UITableViewController {
         // 5
         task.resume()
     }
-    
+    private func saveCities() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(cities, toFile: City.ArchiveURL.path)
+        if isSuccessfulSave {
+          print("Save successfully")
+        } else {
+            print("Not Save Successfully!!!")
+        }
+    }
+    private func loadCities() -> [City]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: City.ArchiveURL.path) as? [City]
+    }
     
     func reloadDataWithArray(_ array:[String]){
         self.searchResults = array
