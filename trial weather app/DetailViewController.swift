@@ -9,8 +9,13 @@
 import UIKit
 
 class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var cityStatusLabel: UILabel!
+    @IBOutlet weak var cityTempLabel: UILabel!
     
-    let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
+    let hourCellIdentifier = "hourCell" // also enter this string as the cell identifier in the storyboard
+    let dayCellIdentifier = "hourCell" // also enter this string as the cell identifier in the storyboard
+
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     
     override func viewDidLoad() {
@@ -35,7 +40,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! ForecastDataCellViewCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: hourCellIdentifier, for: indexPath as IndexPath) as! ForecastDataCellViewCollectionViewCell
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.timeLabel.text = self.items[indexPath.item]
