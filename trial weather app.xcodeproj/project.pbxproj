@@ -19,8 +19,8 @@
 		2584B6F01FCE21850052D771 /* trial_weather_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584B6EF1FCE21850052D771 /* trial_weather_appUITests.swift */; };
 		32CA3C3482D2AED6442798EF /* libPods-trial weather app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A27146DA81D2F1C4FFDB19DB /* libPods-trial weather app.a */; };
 		445736741FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445736721FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.swift */; };
-		445736751FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445736731FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.xib */; };
 		4459D1241FD08180004FAEAF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459D1231FD08180004FAEAF /* DetailViewController.swift */; };
+		4459D1271FD0FC7D004FAEAF /* DayForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459D1251FD0FC7D004FAEAF /* DayForecastCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +59,8 @@
 		2584B6EF1FCE21850052D771 /* trial_weather_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trial_weather_appUITests.swift; sourceTree = "<group>"; };
 		2584B6F11FCE21850052D771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		445736721FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDataCellViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		445736731FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastDataCellViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4459D1231FD08180004FAEAF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4459D1251FD0FC7D004FAEAF /* DayForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastCollectionViewCell.swift; sourceTree = "<group>"; };
 		A27146DA81D2F1C4FFDB19DB /* libPods-trial weather app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-trial weather app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83762FC192E83551CAFB66F /* Pods-trial weather app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trial weather app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trial weather app/Pods-trial weather app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,8 +126,8 @@
 				2569ADE21FCE837900E6C5D4 /* City.swift */,
 				2569ADE41FCE863F00E6C5D4 /* CityTableViewCell.swift */,
 				445736721FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.swift */,
-				445736731FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.xib */,
 				4459D1231FD08180004FAEAF /* DetailViewController.swift */,
+				4459D1251FD0FC7D004FAEAF /* DayForecastCollectionViewCell.swift */,
 			);
 			path = "trial weather app";
 			sourceTree = "<group>";
@@ -279,7 +279,6 @@
 			files = (
 				2584B6DA1FCE21850052D771 /* LaunchScreen.storyboard in Resources */,
 				2584B6D71FCE21850052D771 /* Assets.xcassets in Resources */,
-				445736751FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.xib in Resources */,
 				2584B6D51FCE21850052D771 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +362,7 @@
 			files = (
 				2584B6D21FCE21850052D771 /* ViewController.swift in Sources */,
 				256CC2BD1FCE32EC00E8DB2C /* SearchResultsController.swift in Sources */,
+				4459D1271FD0FC7D004FAEAF /* DayForecastCollectionViewCell.swift in Sources */,
 				2569ADE51FCE863F00E6C5D4 /* CityTableViewCell.swift in Sources */,
 				2569ADE31FCE837900E6C5D4 /* City.swift in Sources */,
 				445736741FCFA9D7003B9C7F /* ForecastDataCellViewCollectionViewCell.swift in Sources */,

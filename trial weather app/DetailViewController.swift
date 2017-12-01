@@ -12,16 +12,37 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityStatusLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
+
+    let hourCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    let layoutHourView:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     
-    let hourCellIdentifier = "hourCell" // also enter this string as the cell identifier in the storyboard
-    let dayCellIdentifier = "hourCell" // also enter this string as the cell identifier in the storyboard
+    let dayCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
+    
+//    let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2), collectionViewLayout: layout)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        layoutHourView.scrollDirection = UICollectionViewScrollDirection.vertical
+        
+        hourCollectionView.setCollectionViewLayout(layoutHourView, animated: true)
+        hourCollectionView.delegate = self
+        hourCollectionView.dataSource = self
+        hourCollectionView.backgroundColor = UIColor.clear
+        
+        dayCollectionView.delegate = self
+        dayCollectionView.dataSource = self
+        dayCollectionView.backgroundColor = UIColor.clear
+        
+        self.hourCollectionView.register(ForecastDataCellViewCollectionViewCell.self, forCellWithReuseIdentifier: "hourCell")
+        self.dayCollectionView.register(DayForecastCollectionViewCell.self, forCellReuseIdentifier: "dayCell")
+        self.view.addSubview(hourCollectionView)
+        self.view.addSubview(dayCollectionView)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,22 +54,54 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
+        if (collectionView == self.hourCollectionView) {
+            print("aaaaaaaaaaaa")
+            return self.items.count
+        } else {
+            print("bbbbbbbbbbbbbb")
+            return self.dayItems.count
+        }
+//        return self.items.count
+        
     }
     
     // make a cell for each cell index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: hourCellIdentifier, for: indexPath as IndexPath) as! ForecastDataCellViewCollectionViewCell
         
+        if (collectionView == self.hourCollectionView) {
+
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourCell", for: indexPath as IndexPath) as! ForecastDataCellViewCollectionViewCell
+
+
+            // Use the outlet in our custom class to get a reference to the UILabel in the cell
+            cell.timeLabel.text = self.items[indexPath.item]
+            cell.statusLabel.text = self.items[indexPath.item]
+            cell.temperatureLabel.text = self.items[indexPath.item]
+
+            return cell
+        }
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath as IndexPath) as! DayForecastCollectionViewCell
+
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.timeLabel.text = self.items[indexPath.item]
-        cell.statusLabel.text = self.items[indexPath.item]
-        cell.temperatureLabel.text = self.items[indexPath.item]
-//        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
-        
+        cell.dayLabel.text = self.dayItems[indexPath.item]
+        cell.statusLabel.text = self.dayItems[indexPath.item]
+        cell.maxTempLabel.text = self.dayItems[indexPath.item]
+        cell.minTempLabel.text = self.dayItems[indexPath.item]
+
         return cell
+        
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourCell", for: indexPath as IndexPath) as! ForecastDataCellViewCollectionViewCell
+//
+//
+//        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+//        cell.timeLabel.text = self.items[indexPath.item]
+//        cell.statusLabel.text = self.items[indexPath.item]
+//        cell.temperatureLabel.text = self.items[indexPath.item]
+//
+//        return cell
     }
     
     // MARK: - UICollectionViewDelegate protocol
