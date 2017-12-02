@@ -43,25 +43,16 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath){
         
-        
-       // let indexPath = tableView.indexPathForSelectedRow!
-       // let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
-        
         valueToPass = cities[indexPath.row].name
-       // DispatchQueue.main.async(){
-         //   self.performSegue(withIdentifier: "mySegue", sender: self)
-        //}
+      
+        
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "detailViewIdentifier") as! DetailViewController
+        myVC.stringPassed = valueToPass
+        navigationController?.pushViewController(myVC, animated: true)
+        
         print(indexPath.row)
     }
-   /* func prepare(segue: UIStoryboardSegue, sender: AnyObject?){
-        
-        if (segue.identifier == "mySegue") {
-            // initialize new view controller and cast it as your view controller
-            var viewController = segue.destination as! DetailViewController
-            // your new view controller should have property that will store passed value
-           // viewController.passedValue = valueToPass
-        }
-    }*/
+
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

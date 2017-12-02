@@ -20,18 +20,17 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
+    var stringPassed = ""
     
     @IBOutlet weak var hourCollectionView: UICollectionView!
     @IBOutlet weak var dayCollectionView: UICollectionView!
-    //    let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2), collectionViewLayout: layout)
+   
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       // layoutHourView.scrollDirection = UICollectionViewScrollDirection.vertical
-        
-        //hourCollectionView.setCollectionViewLayout(layoutHourView, animated: true)
+        cityNameLabel.text = stringPassed
+     
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self
         hourCollectionView.backgroundColor = UIColor.clear
@@ -40,10 +39,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         dayCollectionView.dataSource = self
         dayCollectionView.backgroundColor = UIColor.clear
         
-        //self.hourCollectionView.register(ForecastDataCellViewCollectionViewCell.self, forCellWithReuseIdentifier: "hourCell")
-        //self.dayCollectionView.register(DayForecastCollectionViewCell.self, forCellWithReuseIdentifier: "dayCell")
-        //self.view.addSubview(hourCollectionView)
-       // self.view.addSubview(dayCollectionView)
     }
 
 
@@ -97,16 +92,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
 
         return cell
         }
-        
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourCell", for: indexPath as IndexPath) as! ForecastDataCellViewCollectionViewCell
-//
-//
-//        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-//        cell.timeLabel.text = self.items[indexPath.item]
-//        cell.statusLabel.text = self.items[indexPath.item]
-//        cell.temperatureLabel.text = self.items[indexPath.item]
-//
-//        return cell
     }
     
     // MARK: - UICollectionViewDelegate protocol
