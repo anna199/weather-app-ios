@@ -58,7 +58,6 @@
                                             <outlet property="nameLabel" destination="KCL-aW-feB" id="M48-ry-vSI"/>
                                             <outlet property="temp" destination="m5h-3q-Ara" id="vKn-bE-fCI"/>
                                             <outlet property="time" destination="iNJ-2d-PfT" id="nAJ-Rg-9ll"/>
-                                            <segue destination="HfK-0N-KI8" kind="show" identifier="mySegue" id="nRD-RS-RHc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,7 +88,7 @@
         <!--Detail View Controller-->
         <scene sceneID="g7W-VK-MI4">
             <objects>
-                <viewController id="HfK-0N-KI8" customClass="DetailViewController" customModule="trial_weather_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailViewIdentifier" id="HfK-0N-KI8" customClass="DetailViewController" customModule="trial_weather_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="obe-9a-7Ii">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,6 +238,8 @@
                         <outlet property="cityNameLabel" destination="bWn-Lx-OWv" id="Kz9-sX-dw4"/>
                         <outlet property="cityStatusLabel" destination="cR4-dy-ro6" id="Mck-YK-W87"/>
                         <outlet property="cityTempLabel" destination="xOC-E0-bEU" id="7uX-f9-ajt"/>
+                        <outlet property="dayCollectionView" destination="4ez-0q-Ncg" id="RiA-Vp-yPQ"/>
+                        <outlet property="hourCollectionView" destination="fKj-Pd-KAK" id="P50-hd-lOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFw-2z-NPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
