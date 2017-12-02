@@ -7,13 +7,16 @@
 //
 import UIKit
 import GooglePlaces
-
+import OpenWeatherMapAPIConsumer
 
 
 class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
     
     var valueToPass:String!
     var cities = [City]()
+    var weatherAPI : OpenWeatherMapAPI!
+    var apiKey : String!
+    var responseWeatherApi : ResponseOpenWeatherMapProtocol!
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -34,8 +37,36 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let city = cities[indexPath.row]
         
         cell.nameLabel.text = city.name
+
+        weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
+        weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
+            NSLog("Response Current Weather Done")
+            if (error != nil) {
+                self.showAddOutfitAlert(message: "Error fetching the current weather", error: error)
+            } else {
+               do {
+               self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
+                    DispatchQueue.main.async { [unowned self] in
+                        
+                        cell.temp.text = String(Int(self.responseWeatherApi.getTemperature()))
+                        //print( String(Int(self.responseWeatherApi.getTemperature())))
+                        }
+                        print("hhh")
+               }catch let error as Error {
+                    self.showAddOutfitAlert(message: "Error fetching the forecast weather", error: error)
+                }
+                }
+            } as! (Data?, URLResponse?, Error?) -> Void)
+        
         
         return cell
+    }
+    private func showAddOutfitAlert(message: String, error: Error?) {
+        let alert = UIAlertController(title: "Oups!", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
+            print(error ?? "No error object")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView,
@@ -99,6 +130,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //loadData()
+        apiKey = "b4631e5c54e1a3a9fdda89fca90d4114"
+        weatherAPI = OpenWeatherMapAPI(apiKey: self.apiKey, forType: OpenWeatherMapType.Current)
+        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
