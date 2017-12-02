@@ -7,12 +7,15 @@
 //
 
 import UIKit
+//import SwiftOpenWeatherMapAPI
 
 class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityStatusLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
-
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var maxMinTempLabel: UILabel!
+    
    // let hourCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
    // let layoutHourView:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     
@@ -81,14 +84,13 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
             return cell
         } else{
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath as IndexPath) as! DayForecastCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath as IndexPath) as! DayForecastCollectionViewCell
 
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-            print(self.dayItems[indexPath.row])
-        cell.dayLabel.text = self.dayItems[indexPath.item]
-        cell.statusLabel.text = self.dayItems[indexPath.item]
-        cell.maxTempLabel.text = self.dayItems[indexPath.item]
-        cell.minTempLabel.text = self.dayItems[indexPath.item]
+            // Use the outlet in our custom class to get a reference to the UILabel in the cell
+            cell.dayLabel.text = self.dayItems[indexPath.item]
+            cell.statusLabel.text = self.dayItems[indexPath.item]
+            cell.maxTempLabel.text = self.dayItems[indexPath.item]
+            cell.minTempLabel.text = self.dayItems[indexPath.item]
 
         return cell
         }

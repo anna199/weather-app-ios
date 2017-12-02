@@ -34,8 +34,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let city = cities[indexPath.row]
         
         cell.nameLabel.text = city.name
-       // cell.photoImageView.image = meal.photo
-       // cell.ratingControl.rating = meal.rating
         
         return cell
     }
@@ -88,7 +86,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             }
         }
         self.searchResultController.reloadDataWithArray(self.resultsArray)
-        //   self.searchResultsTable.reloadDataWithArray(self.resultsArray)
         print(resultsArray)
     }
     
@@ -115,7 +112,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         }
         else {
             // Load the sample data.
-            //loadSampleMeals()
         }
     }
     private func loadCities() -> [City]?  {
