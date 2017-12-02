@@ -58,7 +58,7 @@
                                             <outlet property="nameLabel" destination="KCL-aW-feB" id="M48-ry-vSI"/>
                                             <outlet property="temp" destination="m5h-3q-Ara" id="vKn-bE-fCI"/>
                                             <outlet property="time" destination="iNJ-2d-PfT" id="nAJ-Rg-9ll"/>
-                                            <segue destination="HfK-0N-KI8" kind="show" id="nRD-RS-RHc"/>
+                                            <segue destination="HfK-0N-KI8" kind="show" identifier="mySegue" id="nRD-RS-RHc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

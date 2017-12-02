@@ -39,11 +39,12 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         dayCollectionView.backgroundColor = UIColor.clear
         
         self.hourCollectionView.register(ForecastDataCellViewCollectionViewCell.self, forCellWithReuseIdentifier: "hourCell")
-        self.dayCollectionView.register(DayForecastCollectionViewCell.self, forCellReuseIdentifier: "dayCell")
+        self.dayCollectionView.register(DayForecastCollectionViewCell.self, forCellWithReuseIdentifier: "dayCell")
         self.view.addSubview(hourCollectionView)
         self.view.addSubview(dayCollectionView)
-
     }
+
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,17 +82,19 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
             cell.temperatureLabel.text = self.items[indexPath.item]
 
             return cell
-        }
+        } else{
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath as IndexPath) as! DayForecastCollectionViewCell
 
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
+            print(self.dayItems[indexPath.row])
         cell.dayLabel.text = self.dayItems[indexPath.item]
         cell.statusLabel.text = self.dayItems[indexPath.item]
         cell.maxTempLabel.text = self.dayItems[indexPath.item]
         cell.minTempLabel.text = self.dayItems[indexPath.item]
 
         return cell
+        }
         
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourCell", for: indexPath as IndexPath) as! ForecastDataCellViewCollectionViewCell
 //

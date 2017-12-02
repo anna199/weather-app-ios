@@ -12,6 +12,7 @@ import GooglePlaces
 
 class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
     
+    var valueToPass:String!
     var cities = [City]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -30,14 +31,38 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         }
         
         // Fetches the appropriate meal for the data source layout.
-        let meal = cities[indexPath.row]
+        let city = cities[indexPath.row]
         
-        cell.nameLabel.text = meal.name
+        cell.nameLabel.text = city.name
        // cell.photoImageView.image = meal.photo
        // cell.ratingControl.rating = meal.rating
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath){
+        
+        
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        
+        valueToPass = cities[indexPath.row].name
+       // DispatchQueue.main.async(){
+            self.performSegue(withIdentifier: "mySegue", sender: self)
+        //}
+        print(indexPath.row)
+    }
+    func prepare(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        if (segue.identifier == "mySegue") {
+            // initialize new view controller and cast it as your view controller
+            var viewController = segue.destination as! DetailViewController
+            // your new view controller should have property that will store passed value
+           // viewController.passedValue = valueToPass
+        }
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
