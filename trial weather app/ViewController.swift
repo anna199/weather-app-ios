@@ -44,16 +44,16 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
                    didSelectRowAt indexPath: IndexPath){
         
         
-        let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+       // let indexPath = tableView.indexPathForSelectedRow!
+       // let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
         
         valueToPass = cities[indexPath.row].name
        // DispatchQueue.main.async(){
-            self.performSegue(withIdentifier: "mySegue", sender: self)
+         //   self.performSegue(withIdentifier: "mySegue", sender: self)
         //}
         print(indexPath.row)
     }
-    func prepare(segue: UIStoryboardSegue, sender: AnyObject?){
+   /* func prepare(segue: UIStoryboardSegue, sender: AnyObject?){
         
         if (segue.identifier == "mySegue") {
             // initialize new view controller and cast it as your view controller
@@ -61,7 +61,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             // your new view controller should have property that will store passed value
            // viewController.passedValue = valueToPass
         }
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

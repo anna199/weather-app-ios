@@ -13,23 +13,25 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var cityStatusLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
 
-    let hourCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    let layoutHourView:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+   // let hourCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+   // let layoutHourView:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     
-    let dayCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    //let dayCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
     
-//    let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2), collectionViewLayout: layout)
+    @IBOutlet weak var hourCollectionView: UICollectionView!
+    @IBOutlet weak var dayCollectionView: UICollectionView!
+    //    let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2), collectionViewLayout: layout)
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        layoutHourView.scrollDirection = UICollectionViewScrollDirection.vertical
+       // layoutHourView.scrollDirection = UICollectionViewScrollDirection.vertical
         
-        hourCollectionView.setCollectionViewLayout(layoutHourView, animated: true)
+        //hourCollectionView.setCollectionViewLayout(layoutHourView, animated: true)
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self
         hourCollectionView.backgroundColor = UIColor.clear
@@ -38,10 +40,10 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         dayCollectionView.dataSource = self
         dayCollectionView.backgroundColor = UIColor.clear
         
-        self.hourCollectionView.register(ForecastDataCellViewCollectionViewCell.self, forCellWithReuseIdentifier: "hourCell")
-        self.dayCollectionView.register(DayForecastCollectionViewCell.self, forCellWithReuseIdentifier: "dayCell")
-        self.view.addSubview(hourCollectionView)
-        self.view.addSubview(dayCollectionView)
+        //self.hourCollectionView.register(ForecastDataCellViewCollectionViewCell.self, forCellWithReuseIdentifier: "hourCell")
+        //self.dayCollectionView.register(DayForecastCollectionViewCell.self, forCellWithReuseIdentifier: "dayCell")
+        //self.view.addSubview(hourCollectionView)
+       // self.view.addSubview(dayCollectionView)
     }
 
 
