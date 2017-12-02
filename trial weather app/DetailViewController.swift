@@ -24,6 +24,8 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
     var stringPassed = ""
+    var todayDate = ""
+    var curTemp = ""
     
     @IBOutlet weak var hourCollectionView: UICollectionView!
     @IBOutlet weak var dayCollectionView: UICollectionView!
@@ -33,6 +35,8 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameLabel.text = stringPassed
+        dateLabel.text = todayDate
+        cityTempLabel.text = curTemp
      
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self

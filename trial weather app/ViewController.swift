@@ -12,11 +12,16 @@ import OpenWeatherMapAPIConsumer
 
 class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
     
-    var valueToPass:String!
+    // vars to pass to detail view
+    var valueToPass:String!     // city Name
+    var detailVCdate : String!  // cur date
+    
     var cities = [City]()
     var weatherAPI : OpenWeatherMapAPI!
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -37,6 +42,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let city = cities[indexPath.row]
         
         cell.nameLabel.text = city.name
+        print("&&&&&city.name: " + city.name)
 
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
@@ -72,10 +78,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         print(url!)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
+
        // dateFormatter.timeZone = NSTimeZone(name: timeZoneId) as! TimeZone
         let date : Date = Date()
         var todaysDate = dateFormatter.string(from: date)
-        
+
         let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
             // 3
             do {
@@ -85,10 +92,15 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
                 let dstOffset =   dic.value(forKey: "dstOffset") as! Double
                 print(dstOffset)
                 let timeZoneId =   dic.value(forKey: "timeZoneId") as! String
-                     print(timeZoneId)
+                print(timeZoneId)
             
                 dateFormatter.timeZone = NSTimeZone(name: timeZoneId) as! TimeZone
                 todaysDate = dateFormatter.string(from: date)
+                    
+                let dateFormatterForDetail = DateFormatter()
+                dateFormatterForDetail.dateFormat = "EEE, MMM d, y"
+                self.detailVCdate = dateFormatterForDetail.string(from : date)  // will be passed to deatil view
+                    
                 DispatchQueue.main.async { [unowned self] in
                     cell.time.text = todaysDate
                 }
@@ -123,11 +135,14 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath){
         
-        valueToPass = cities[indexPath.row].name
-      
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as? CityTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
         
         let myVC = storyboard?.instantiateViewController(withIdentifier: "detailViewIdentifier") as! DetailViewController
-        myVC.stringPassed = valueToPass
+        myVC.stringPassed = cities[indexPath.row].name
+        myVC.todayDate = detailVCdate
+//        myVC.curTemp = cell.temp.text!
         navigationController?.pushViewController(myVC, animated: true)
         
         print(indexPath.row)
