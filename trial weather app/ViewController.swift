@@ -86,7 +86,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             do {
                 if data != nil{
                     let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as! NSDictionary
-//
+
                 let dstOffset =   dic.value(forKey: "dstOffset") as! Double
                 print(dstOffset)
                 let timeZoneId =   dic.value(forKey: "timeZoneId") as! String
@@ -101,6 +101,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
                     
                 DispatchQueue.main.async { [unowned self] in
                     cell.time.text = todaysDate
+                    city.timeZoneId = timeZoneId
                 }
                     
                 }
@@ -128,7 +129,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let myVC = storyboard?.instantiateViewController(withIdentifier: "detailViewIdentifier") as! DetailViewController
         myVC.stringPassed = cities[indexPath.row].name
         myVC.todayDate = detailVCdate
-//        myVC.curTemp = cell.temp.text!
+        //myVC.curTemp = cell.temp.text!
+        myVC.city = cities[indexPath.row]
+        print(cities[indexPath.row].timeZoneId)
         navigationController?.pushViewController(myVC, animated: true)
         
         print(indexPath.row)

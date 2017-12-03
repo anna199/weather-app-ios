@@ -25,6 +25,7 @@ class City: NSObject, NSCoding {
     var name: String
     var lat: String
     var lon: String
+    var timeZoneId: String
     
     //MARK: Archiving Paths
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -57,6 +58,7 @@ class City: NSObject, NSCoding {
         self.name = name
         self.lat = lat
         self.lon = lon
+        self.timeZoneId = ""
         
     }
     
@@ -85,5 +87,6 @@ class City: NSObject, NSCoding {
         self.init(name: name, lat: lat as! String, lon: lon as! String)
         
     }
+    
 }
 
