@@ -10,33 +10,29 @@ import UIKit
 //import SwiftOpenWeatherMapAPI
 
 class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var hourCollectionView: UICollectionView!
+    @IBOutlet weak var dayCollectionView: UICollectionView!
+    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityStatusLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var maxMinTempLabel: UILabel!
     
-   // let hourCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-   // let layoutHourView:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
-    
-    //let dayCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
     var stringPassed = ""
     var todayDate = ""
     var curTemp = ""
-    
-    @IBOutlet weak var hourCollectionView: UICollectionView!
-    @IBOutlet weak var dayCollectionView: UICollectionView!
-   
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameLabel.text = stringPassed
         dateLabel.text = todayDate
-        cityTempLabel.text = curTemp
+//        cityTempLabel.text = curTemp
+        
      
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self

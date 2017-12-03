@@ -16,12 +16,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     var valueToPass:String!     // city Name
     var detailVCdate : String!  // cur date
     
+    
     var cities = [City]()
     var weatherAPI : OpenWeatherMapAPI!
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -52,13 +51,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             if (error != nil) {
                 self.showAddOutfitAlert(message: "Error fetching the current weather", error: error)
             } else {
-               do {
-               self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
-                  DispatchQueue.main.async { [unowned self] in
-                        
+                do {
+                    self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
+                    DispatchQueue.main.async { [unowned self] in
                         cell.temp.text = String(Int(self.responseWeatherApi.getTemperature()))
-                        }
-                        print("hhh")
+                    }
                }catch let error as Error {
                     self.showAddOutfitAlert(message: "Error fetching the forecast weather", error: error)
                 }
@@ -83,7 +80,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let date : Date = Date()
         var todaysDate = dateFormatter.string(from: date)
 
-        
         let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
         
             // 3
