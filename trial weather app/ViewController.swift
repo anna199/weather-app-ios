@@ -37,7 +37,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let city = cities[indexPath.row]
         
         cell.nameLabel.text = city.name
-
+        self.getLocaltime(city: city, cell:cell)
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             NSLog("Response Current Weather Done")
@@ -46,11 +46,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             } else {
                do {
                self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
-                    DispatchQueue.main.async { [unowned self] in
+                  DispatchQueue.main.async { [unowned self] in
                         
                         cell.temp.text = String(Int(self.responseWeatherApi.getTemperature()))
-                        //cell.time.text = self.responseWeatherApi.getDate().description
-                        self.getLocaltime(city: city, cell: cell)
                         }
                         print("hhh")
                }catch let error as Error {
@@ -62,8 +60,8 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         
         return cell
     }
-    private func getLocaltime(city: City, cell: CityTableViewCell) -> String {
-        self.dismiss(animated: true, completion: nil)
+    private func getLocaltime(city: City, cell:CityTableViewCell) {
+        //self.dismiss(animated: true, completion: nil)
         let timeInterval = NSDate().timeIntervalSince1970
         // 2
         let urlpath = "https://maps.googleapis.com/maps/api/timezone/json?location=\(city.lat),\(city.lon)&&timestamp=\(timeInterval)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -76,7 +74,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let date : Date = Date()
         var todaysDate = dateFormatter.string(from: date)
         
-        let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
+      let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
             // 3
             do {
                 if data != nil{
@@ -89,20 +87,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             
                 dateFormatter.timeZone = NSTimeZone(name: timeZoneId) as! TimeZone
                 todaysDate = dateFormatter.string(from: date)
-                DispatchQueue.main.async { [unowned self] in
+               DispatchQueue.main.async { [unowned self] in
                     cell.time.text = todaysDate
                 }
-                //print(todaysDate)
-//
-//                    let lon =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lng")) as! Double
-//                    // 4
-//                    self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
-//                    let name = self.searchResults[indexPath.row]
-//                    print(lat, lon, self.searchResults[indexPath.row])
-//                    let newCity = City(name: name, lat: String(lat), lon: String(lon))
-//                    self.cities.append(newCity!)
-//                    self.saveCities()
-//                    self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
                     
                 }
             }  catch {
@@ -110,7 +97,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             }
         }
         task.resume()
-        return todaysDate
     }
     private func showAddOutfitAlert(message: String, error: Error?) {
         let alert = UIAlertController(title: "Oups!", message: message, preferredStyle: .alert)
