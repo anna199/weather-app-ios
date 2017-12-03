@@ -16,6 +16,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     var weatherAPI : OpenWeatherMapAPI!
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
+    var temp: [String] = []
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -40,6 +41,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
 
 
         self.getLocaltime(city: city, cell:cell)
+    
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             NSLog("Response Current Weather Done")
@@ -93,6 +95,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
                 DispatchQueue.main.async { [unowned self] in
                     cell.time.text = todaysDate
                     city.timeZoneId = timeZoneId
+                   // self.temp += ["hahhh"]
                 }
                     
                 }

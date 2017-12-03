@@ -23,7 +23,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
 
-
     var items : [String] = []
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
     var city: City = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")!
@@ -48,12 +47,10 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         //assign vals to dayItems
      
-        print("before:  items")
-        print(items)
-        var item : [String] = prepareItems()
-        
-        print("after:  item")
-        print(item)
+    
+       self.items = prepareItems()
+       // myFunction()
+      
         //assign vals to dayItems
      
         hourCollectionView.delegate = self
@@ -65,32 +62,30 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         dayCollectionView.backgroundColor = UIColor.clear
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
 
 
-    func prepareItems() -> [String] {
+    func prepareItems() ->[String] {
         
         
         weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
-        
+        let group = DispatchGroup()
+        group.enter()
         var item : [String] =  []
-        weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
+      weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             if (error != nil) {
                 print("laura: error1")
                 //Handling error
             } else {
                 do {
-                    
                     let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
-                    print("responseWeatherApi.getItemsForDetail()")
-                    print(responseWeatherApi.getItemsForDetail())
                     let tmp = responseWeatherApi.getItemsForDetail() as! [String]
-                    print("tmp")
-                    print(tmp)
+               
                     item = tmp
-
-                    print("after self.items += tmp")
-                    print(responseWeatherApi.getItemsForDetail())
+                    group.leave()
                     
                     
                 } catch let error as Error {
@@ -99,8 +94,11 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         })
-
+     
+     
+        group.wait()
         return item
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,7 +133,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
 
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.timeLabel.text = self.items[indexPath.item]
-            cell.statusLabel.text = self.items[indexPath.item]
+            cell.statusLabel.text = self.items[indexPath.item + 8]
             cell.temperatureLabel.text = self.items[indexPath.item]
 
             return cell
