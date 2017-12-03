@@ -22,20 +22,18 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     var weatherAPI : OpenWeatherMapAPI!
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
-    
+
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
     var curTemp = ""
     var city: City = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")!
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         cityNameLabel.text = city.name
-       // cityTempLabel.text = curTemp
+        cityTempLabel.text = curTemp
         
         let dateFormatterForDetail = DateFormatter()
         dateFormatterForDetail.timeZone = NSTimeZone(name: (city.timeZoneId)) as! TimeZone
@@ -49,7 +47,13 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         //assign vals to items
         setCurrentTemp()
-      
+        
+        //assign vals to dayItems
+     
+        items = prepareItems()
+        
+        //assign vals to dayItems
+     
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self
         hourCollectionView.backgroundColor = UIColor.clear
@@ -61,6 +65,39 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
 
+    func prepareItems() ->[String] {
+        
+        
+        weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
+        weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
+        
+        var item : [String]
+        weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
+            if (error != nil) {
+                print("laura: error1")
+                //Handling error
+            } else {
+                do {
+                    let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
+                    
+                    print("crazy 277")
+//                    print(responseWeatherApi.getCityName())
+//                    print("laura: " + responseWeatherApi.getDescription())
+                    
+                    
+                } catch let error as Error {
+                    //Handling error
+                    print("laura: error2")
+                }
+            }
+        })
+        
+        
+        
+        
+        
+        return items
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
