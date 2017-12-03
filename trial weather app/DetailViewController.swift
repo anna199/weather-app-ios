@@ -22,17 +22,27 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
-    var stringPassed = ""
-    var todayDate = ""
     var curTemp = ""
+    var city = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cityNameLabel.text = stringPassed
-        dateLabel.text = todayDate
-//        cityTempLabel.text = curTemp
+        cityNameLabel.text = city?.name
+        cityTempLabel.text = curTemp
         
+        let dateFormatterForDetail = DateFormatter()
+        dateFormatterForDetail.timeZone = NSTimeZone(name: (city?.timeZoneId)!) as! TimeZone
+        dateFormatterForDetail.dateFormat = "EEE, MMM d, y"
+        dateLabel.text = dateFormatterForDetail.string(from : Date())
+        
+        
+        
+        
+        //assign vals to items
+        
+        
+        //assign vals to dayItems
      
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self

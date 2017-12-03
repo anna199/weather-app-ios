@@ -12,11 +12,6 @@ import OpenWeatherMapAPIConsumer
 
 class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
     
-    // vars to pass to detail view
-    var valueToPass:String!     // city Name
-    var detailVCdate : String!  // cur date
-    
-    
     var cities = [City]()
     var weatherAPI : OpenWeatherMapAPI!
     var apiKey : String!
@@ -95,10 +90,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
                 dateFormatter.timeZone = NSTimeZone(name: timeZoneId) as! TimeZone
                 todaysDate = dateFormatter.string(from: date)
                     
-                let dateFormatterForDetail = DateFormatter()
-                dateFormatterForDetail.dateFormat = "EEE, MMM d, y"
-                self.detailVCdate = dateFormatterForDetail.string(from : date)  // will be passed to deatil view
-                    
                 DispatchQueue.main.async { [unowned self] in
                     cell.time.text = todaysDate
                     city.timeZoneId = timeZoneId
@@ -127,11 +118,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         }
         
         let myVC = storyboard?.instantiateViewController(withIdentifier: "detailViewIdentifier") as! DetailViewController
-        myVC.stringPassed = cities[indexPath.row].name
-        myVC.todayDate = detailVCdate
-        //myVC.curTemp = cell.temp.text!
         myVC.city = cities[indexPath.row]
-        print(cities[indexPath.row].timeZoneId)
         navigationController?.pushViewController(myVC, animated: true)
         
         print(indexPath.row)
