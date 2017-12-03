@@ -26,14 +26,12 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
-    var curTemp = ""
     var city: City = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         cityNameLabel.text = city.name
-        cityTempLabel.text = curTemp
         
         let dateFormatterForDetail = DateFormatter()
         dateFormatterForDetail.timeZone = NSTimeZone(name: (city.timeZoneId)) as! TimeZone
@@ -91,10 +89,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         })
-        
-        
-        
-        
         
         return items
     }
