@@ -33,10 +33,18 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         cityNameLabel.text = city.name
         
         let dateFormatterForDetail = DateFormatter()
-        dateFormatterForDetail.timeZone = NSTimeZone(name: (city.timeZoneId)) as! TimeZone
+        dateFormatterForDetail.timeZone = NSTimeZone(name: (city.timeZoneId))! as TimeZone
         dateFormatterForDetail.dateFormat = "EEE, MMM d, y"
         dateLabel.text = dateFormatterForDetail.string(from : Date())
         
+        dateFormatterForDetail.dateFormat = "HH"
+        let curHour : String = dateFormatterForDetail.string(from : Date())
+        
+        for i in 0...7 {
+            let tmp = Int(curHour)
+            let tmpHour = (tmp! + 3 * i) % 24
+            items.append(String(tmpHour))
+        }
         
         apiKey = "b4631e5c54e1a3a9fdda89fca90d4114"
         weatherAPI = OpenWeatherMapAPI(apiKey: self.apiKey, forType: OpenWeatherMapType.Current)
@@ -48,7 +56,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         //assign vals to dayItems
      
     
-       self.items = prepareItems()
+       self.items += prepareItems()
        // myFunction()
       
         //assign vals to dayItems
@@ -135,7 +143,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.timeLabel.text = self.items[indexPath.item]
             cell.statusLabel.text = self.items[indexPath.item + 8]
-            cell.temperatureLabel.text = self.items[indexPath.item]
+            cell.temperatureLabel.text = self.items[indexPath.item + 16]
 
             return cell
         } else{
