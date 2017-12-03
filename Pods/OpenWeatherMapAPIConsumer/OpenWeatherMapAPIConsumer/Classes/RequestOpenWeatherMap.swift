@@ -26,10 +26,6 @@ public class RequestOpenWeatherMap {
     public func request(onCompletion : @escaping (Data?, URLResponse?, Error?) -> Swift.Void) {
         let paramString = self.stringFromHttpParameters()
         let url = URL(string: baseURLString + apiVersion + type.rawValue + "?" + paramString)!
-        print("crazy 277: ** url called behind: ")
-        print(baseURLString)
-        
-        print(baseURLString + apiVersion + type.rawValue + "?" + paramString)
         let session = URLSession.shared
         
         var request = URLRequest(url: url)

@@ -46,6 +46,30 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
     public func getCityName() -> String {
         return self.rawData["name"] as! String
     }
+    
+    public func getItemsForDetail() -> [String] {
+        var items : [String] = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+        let list = self.rawData["list"] as! NSArray
+        
+        for i in 0...7 {
+            var hourData = list[i] as! NSDictionary
+            var istr = String(i)
+            var statusObj = hourData["weather"] as! NSArray
+            let array0 = statusObj[0] as! NSDictionary
+            var status = array0["description"] as! String
+            items[i] = status
+        }
+        
+        for i in 0...7 {
+            var hourData = list[i] as! NSDictionary
+            var tempObj = hourData["main"] as! NSDictionary
+            var temp = Int(tempObj["temp"] as! NSNumber)
+            
+            items[i + 8] = String(temp)
+        }
+        return items
+    }
+    
 	
 	public func getIconList() -> IconList {
 		let weather = self.getArrayOfDictionary(byKey: "weather").first

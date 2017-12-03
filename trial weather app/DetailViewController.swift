@@ -24,7 +24,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
 
 
-    var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    var items : [String] = []
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
     var city: City = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")!
 
@@ -48,8 +48,12 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         //assign vals to dayItems
      
-        items = prepareItems()
+        print("before:  items")
+        print(items)
+        var item : [String] = prepareItems()
         
+        print("after:  item")
+        print(item)
         //assign vals to dayItems
      
         hourCollectionView.delegate = self
@@ -63,24 +67,30 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
 
-    func prepareItems() ->[String] {
+    func prepareItems() -> [String] {
         
         
         weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         
-        var item : [String]
+        var item : [String] =  []
         weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             if (error != nil) {
                 print("laura: error1")
                 //Handling error
             } else {
                 do {
-                    let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
                     
-                    print("crazy 277")
-//                    print(responseWeatherApi.getCityName())
-//                    print("laura: " + responseWeatherApi.getDescription())
+                    let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
+                    print("responseWeatherApi.getItemsForDetail()")
+                    print(responseWeatherApi.getItemsForDetail())
+                    let tmp = responseWeatherApi.getItemsForDetail() as! [String]
+                    print("tmp")
+                    print(tmp)
+                    item = tmp
+
+                    print("after self.items += tmp")
+                    print(responseWeatherApi.getItemsForDetail())
                     
                     
                 } catch let error as Error {
@@ -89,8 +99,8 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         })
-        
-        return items
+
+        return item
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,7 +114,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == self.hourCollectionView) {
             print("aaaaaaaaaaaa")
-            return self.items.count
+            return self.items.count / 2
         } else {
             print("bbbbbbbbbbbbbb")
             return self.dayItems.count
