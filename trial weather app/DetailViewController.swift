@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SwiftOpenWeatherMapAPI
+import OpenWeatherMapAPIConsumer
 
 class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var hourCollectionView: UICollectionView!
@@ -19,31 +19,37 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var maxMinTempLabel: UILabel!
     
+    var weatherAPI : OpenWeatherMapAPI!
+    var apiKey : String!
+    var responseWeatherApi : ResponseOpenWeatherMapProtocol!
+    
 
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
     var curTemp = ""
-    var city = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")
+    var city: City = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")!
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cityNameLabel.text = city?.name
-        cityTempLabel.text = curTemp
+
+        cityNameLabel.text = city.name
+       // cityTempLabel.text = curTemp
         
         let dateFormatterForDetail = DateFormatter()
-        dateFormatterForDetail.timeZone = NSTimeZone(name: (city?.timeZoneId)!) as! TimeZone
+        dateFormatterForDetail.timeZone = NSTimeZone(name: (city.timeZoneId)) as! TimeZone
         dateFormatterForDetail.dateFormat = "EEE, MMM d, y"
         dateLabel.text = dateFormatterForDetail.string(from : Date())
         
         
-        
+        apiKey = "b4631e5c54e1a3a9fdda89fca90d4114"
+        weatherAPI = OpenWeatherMapAPI(apiKey: self.apiKey, forType: OpenWeatherMapType.Current)
+        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
         
         //assign vals to items
-        
-        
-        //assign vals to dayItems
-     
+        setCurrentTemp()
+      
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self
         hourCollectionView.backgroundColor = UIColor.clear
@@ -111,6 +117,34 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+    }
+    
+    func setCurrentTemp(){
+        weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
+        weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
+            NSLog("Response Current Weather Done")
+            if (error != nil) {
+                print(error ?? "error")
+            } else {
+                do {
+                    self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
+                    DispatchQueue.main.async { [unowned self] in
+                        self.cityTempLabel.text = String(Int(self.responseWeatherApi.getTemperature()))
+                        self.cityStatusLabel.text = String(self.responseWeatherApi.getDescription())
+                        var tempMin = String(Int(self.responseWeatherApi.getTempMin()))
+                      
+                       
+                        var tempMax = String(Int(self.responseWeatherApi.getTempMax()))
+                        //let indexMax = tempMin.index(tempMax.endIndex, offsetBy: -2)
+                        //tempMax = tempMax.substring(to: indexMax)
+                        
+                        self.maxMinTempLabel.text = tempMax + " " + tempMin
+                    }
+                }catch let error as Error {
+                    
+                }
+            }
+        })
     }
 
 
