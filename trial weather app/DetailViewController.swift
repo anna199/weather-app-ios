@@ -71,6 +71,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         
         weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
+        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         let group = DispatchGroup()
         group.enter()
