@@ -24,7 +24,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
 
     var items : [String] = []
-    var dayItems = ["Mon", "Tue", "Wed", "Thur", "Fri"]
+    var dayItems : [String] = []
     var city: City = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")!
 
     override func viewDidLoad() {
@@ -50,13 +50,15 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         weatherAPI = OpenWeatherMapAPI(apiKey: self.apiKey, forType: OpenWeatherMapType.Current)
         weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
         
-        //assign vals to items
         setCurrentTemp()
         
+        //assign vals to items
+        self.items += prepareItems()
+        
         //assign vals to dayItems
-     
+        self.dayItems += prepareDayItems()
     
-       self.items += prepareItems()
+       
 
        // myFunction()
       
@@ -77,8 +79,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
 
 
     func prepareItems() ->[String] {
-        
-        
         weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
         weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
@@ -87,12 +87,12 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         var item : [String] =  []
       weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             if (error != nil) {
-                print("laura: error1")
+                print("error1")
                 //Handling error
             } else {
                 do {
                     let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
-                    let tmp = responseWeatherApi.getItemsForDetail() as! [String]
+                    let tmp = responseWeatherApi.getItemsForDetail()
                
                     item = tmp
                     group.leave()
@@ -100,7 +100,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                     
                 } catch let error as Error {
                     //Handling error
-                    print("laura: error2")
+                    print("error2")
                 }
             }
         })
@@ -109,6 +109,44 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         group.wait()
         return item
         
+    }
+    
+    func prepareDayItems() -> [String] {
+        weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
+        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
+        let group = DispatchGroup()
+        group.enter()
+        var dayItem : [String] =  []
+        weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
+            if (error != nil) {
+                print("error3")
+                //Handling error
+            } else {
+                do {
+                let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
+                    let tmp = responseWeatherApi.getDayItemsForDetail()
+            
+                dayItem = tmp
+                dayItem.insert("FakeMon", at: 0)
+                dayItem.insert("FakeMon", at: 4)
+                dayItem.insert("FakeMon", at: 8)
+                dayItem.insert("FakeMon", at: 12)
+                dayItem.insert("FakeMon", at: 16)
+
+                group.leave()
+            
+            
+                } catch let error as Error {
+                //Handling error
+                    print("error4")
+                }
+            }
+        })
+    
+    
+        group.wait()
+        return dayItem
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,14 +159,10 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == self.hourCollectionView) {
-            print("aaaaaaaaaaaa")
             return self.items.count / 3
         } else {
-            print("bbbbbbbbbbbbbb")
-            return self.dayItems.count
-        }
-//        return self.items.count
-        
+            return self.dayItems.count / 4
+        }        
     }
     
     // make a cell for each cell index path
@@ -152,10 +186,10 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath as IndexPath) as! DayForecastCollectionViewCell
 
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
-            cell.dayLabel.text = self.dayItems[indexPath.item]
-            cell.statusLabel.text = self.dayItems[indexPath.item]
-            cell.maxTempLabel.text = self.dayItems[indexPath.item]
-            cell.minTempLabel.text = self.dayItems[indexPath.item]
+            cell.dayLabel.text = self.dayItems[indexPath.item * 4]
+            cell.statusLabel.text = self.dayItems[indexPath.item * 4 + 1]
+            cell.maxTempLabel.text = self.dayItems[indexPath.item * 4 + 2]
+            cell.minTempLabel.text = self.dayItems[indexPath.item * 4 + 3]
 
         return cell
         }

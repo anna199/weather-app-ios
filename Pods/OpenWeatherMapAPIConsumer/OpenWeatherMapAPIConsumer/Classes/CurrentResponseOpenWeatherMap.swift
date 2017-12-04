@@ -70,6 +70,38 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
         return items
     }
     
+    // only get "status", "max", "min" for each day
+    // will insert date in the future
+    public func getDayItemsForDetail() -> [String] {
+        var dayItems : [String] = ["", "", "",
+                                 "", "", "",
+                                 "", "", "",
+                                 "", "", "",
+                                 "", "", ""]
+        
+        let list = self.rawData["list"] as! NSArray
+        
+        let cntPerDayHalf = list.count / 5 / 2
+        
+        for i in 0...4 {
+            var dayData = list[i + cntPerDayHalf] as! NSDictionary
+            var istr = String(i)
+            var statusObj = dayData["weather"] as! NSArray
+            let array0 = statusObj[0] as! NSDictionary
+            var status = array0["description"] as! String
+            dayItems[i * 3] = status
+            
+            var mainObj = dayData["main"] as! NSDictionary
+            var maxTemp = Int(mainObj["temp_max"] as! NSNumber)
+            var minTemp = Int(mainObj["temp_min"] as! NSNumber)
+            dayItems[i * 3 + 1] = String(maxTemp)
+            dayItems[i * 3 + 2] = String(minTemp)
+        }
+        
+        
+        return dayItems
+    }
+    
 	
 	public func getIconList() -> IconList {
 		let weather = self.getArrayOfDictionary(byKey: "weather").first
