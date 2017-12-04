@@ -57,6 +57,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
      
     
        self.items += prepareItems()
+
        // myFunction()
       
         //assign vals to dayItems
@@ -121,7 +122,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == self.hourCollectionView) {
             print("aaaaaaaaaaaa")
-            return self.items.count / 2
+            return self.items.count / 3
         } else {
             print("bbbbbbbbbbbbbb")
             return self.dayItems.count
@@ -144,7 +145,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
             cell.timeLabel.text = self.items[indexPath.item]
             cell.statusLabel.text = self.items[indexPath.item + 8]
             cell.temperatureLabel.text = self.items[indexPath.item + 16]
-
+            
             return cell
         } else{
 
