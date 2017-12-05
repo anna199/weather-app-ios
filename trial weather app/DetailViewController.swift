@@ -43,7 +43,11 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         for i in 0...7 {
             let tmp = Int(curHour)
             let tmpHour = (tmp! + 3 * i) % 24
-            items.append(String(tmpHour))
+            if(tmpHour >= 12) {
+                items.append(String(tmpHour) + " PM")
+            } else {
+                items.append(String(tmpHour) + " AM")
+            }
         }
         
         apiKey = "b4631e5c54e1a3a9fdda89fca90d4114"
@@ -52,17 +56,8 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         setCurrentTemp()
         
-        //assign vals to items
         self.items += prepareItems()
-        
-        //assign vals to dayItems
         self.dayItems += prepareDayItems()
-    
-       
-
-       // myFunction()
-      
-        //assign vals to dayItems
      
         hourCollectionView.delegate = self
         hourCollectionView.dataSource = self
@@ -84,8 +79,9 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         let group = DispatchGroup()
         group.enter()
+        
         var item : [String] =  []
-      weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
+        weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             if (error != nil) {
                 print("error1")
                 //Handling error
@@ -96,7 +92,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                
                     item = tmp
                     group.leave()
-                    
                     
                 } catch let error as Error {
                     //Handling error
@@ -150,6 +145,9 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                     dayItem.insert(day3Date, at: 8)
                     dayItem.insert(day4Date, at: 12)
                     dayItem.insert(day5Date, at: 16)
+                    
+                    print("dayItem")
+                    print(dayItem)
                     
                     group.leave()
             

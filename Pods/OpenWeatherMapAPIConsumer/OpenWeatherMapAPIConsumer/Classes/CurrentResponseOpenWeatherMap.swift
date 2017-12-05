@@ -52,18 +52,17 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
         let list = self.rawData["list"] as! NSArray
         
         for i in 0...7 {
-            var hourData = list[i] as! NSDictionary
-            var istr = String(i)
-            var statusObj = hourData["weather"] as! NSArray
+            let hourData = list[i] as! NSDictionary
+            let statusObj = hourData["weather"] as! NSArray
             let array0 = statusObj[0] as! NSDictionary
-            var status = array0["description"] as! String
+            let status = array0["description"] as! String
             items[i] = status
         }
         
         for i in 0...7 {
-            var hourData = list[i] as! NSDictionary
-            var tempObj = hourData["main"] as! NSDictionary
-            var temp = Int(tempObj["temp"] as! NSNumber)
+            let hourData = list[i] as! NSDictionary
+            let tempObj = hourData["main"] as! NSDictionary
+            let temp = Int(tempObj["temp"] as! NSNumber)
             
             items[i + 8] = String(temp)
         }
@@ -84,16 +83,15 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
         let cntPerDayHalf = list.count / 5 / 2
         
         for i in 0...4 {
-            var dayData = list[i + cntPerDayHalf] as! NSDictionary
-            var istr = String(i)
-            var statusObj = dayData["weather"] as! NSArray
+            let dayData = list[i + cntPerDayHalf] as! NSDictionary
+            let statusObj = dayData["weather"] as! NSArray
             let array0 = statusObj[0] as! NSDictionary
-            var status = array0["description"] as! String
+            let status = array0["description"] as! String
             dayItems[i * 3] = status
             
-            var mainObj = dayData["main"] as! NSDictionary
-            var maxTemp = Int(mainObj["temp_max"] as! NSNumber)
-            var minTemp = Int(mainObj["temp_min"] as! NSNumber)
+            let mainObj = dayData["main"] as! NSDictionary
+            let maxTemp = Int(mainObj["temp_max"] as! NSNumber)
+            let minTemp = Int(mainObj["temp_min"] as! NSNumber)
             dayItems[i * 3 + 1] = String(maxTemp)
             dayItems[i * 3 + 2] = String(minTemp)
         }
