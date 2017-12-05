@@ -51,7 +51,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
                 do {
                     self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
                     DispatchQueue.main.async { [unowned self] in
-                        cell.temp.text = String(Int(self.responseWeatherApi.getTemperature()))
+                        cell.temp.text = String(Int(self.responseWeatherApi.getTemperature())) + "°"
                     }
                }catch let error as Error {
                     self.showAddOutfitAlert(message: "Error fetching the forecast weather", error: error)
@@ -95,7 +95,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
                 DispatchQueue.main.async { [unowned self] in
                     cell.time.text = todaysDate
                     city.timeZoneId = timeZoneId
-                   // self.temp += ["hahhh"]
                 }
                     
                 }

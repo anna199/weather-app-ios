@@ -56,15 +56,26 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
             let statusObj = hourData["weather"] as! NSArray
             let array0 = statusObj[0] as! NSDictionary
             let status = array0["description"] as! String
-            items[i] = status
+            
+            if status.lowercased().range(of:"cloud") != nil {
+                items[i] = "Cloudy"
+            } else if (status.lowercased().range(of:"clear") != nil) {
+                items[i] = "Sunny"
+            } else if (status.lowercased().range(of:"rain") != nil) {
+                items[i] = "Rainy"
+            } else if (status.lowercased().range(of:"dust") != nil) {
+                items[i] = "Dusty"
+            }else {
+                items[i] = status
+            }
         }
-        
+
         for i in 0...7 {
             let hourData = list[i] as! NSDictionary
             let tempObj = hourData["main"] as! NSDictionary
             let temp = Int(tempObj["temp"] as! NSNumber)
             
-            items[i + 8] = String(temp)
+            items[i + 8] = String(temp) + "°"
         }
         return items
     }
@@ -87,13 +98,24 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
             let statusObj = dayData["weather"] as! NSArray
             let array0 = statusObj[0] as! NSDictionary
             let status = array0["description"] as! String
-            dayItems[i * 3] = status
+            
+            if status.lowercased().range(of:"cloud") != nil {
+                dayItems[i * 3] = "Cloudy"
+            } else if (status.lowercased().range(of:"clear") != nil) {
+                dayItems[i * 3] = "Sunny"
+            } else if (status.lowercased().range(of:"rain") != nil) {
+                dayItems[i * 3] = "Rainy"
+            } else if (status.lowercased().range(of:"dust") != nil) {
+                dayItems[i * 3] = "Dusty"
+            } else {
+                dayItems[i * 3] = status
+            }
             
             let mainObj = dayData["main"] as! NSDictionary
             let maxTemp = Int(mainObj["temp_max"] as! NSNumber)
             let minTemp = Int(mainObj["temp_min"] as! NSNumber)
-            dayItems[i * 3 + 1] = String(maxTemp)
-            dayItems[i * 3 + 2] = String(minTemp)
+            dayItems[i * 3 + 1] = String(maxTemp) + "°"
+            dayItems[i * 3 + 2] = String(minTemp) + "°"
         }
         
         

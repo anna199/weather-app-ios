@@ -91,6 +91,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                     let tmp = responseWeatherApi.getItemsForDetail()
                
                     item = tmp
+                    
                     group.leave()
                     
                 } catch let error as Error {
@@ -99,7 +100,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         })
-     
      
         group.wait()
         return item
@@ -145,9 +145,6 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                     dayItem.insert(day3Date, at: 8)
                     dayItem.insert(day4Date, at: 12)
                     dayItem.insert(day5Date, at: 16)
-                    
-                    print("dayItem")
-                    print(dayItem)
                     
                     group.leave()
             
@@ -226,18 +223,15 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                 do {
                     self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
                     DispatchQueue.main.async { [unowned self] in
-                        self.cityTempLabel.text = String(Int(self.responseWeatherApi.getTemperature()))
+                        self.cityTempLabel.text = String(Int(self.responseWeatherApi.getTemperature())) + "°"
                         self.cityStatusLabel.text = String(self.responseWeatherApi.getDescription())
-                        var tempMin = String(Int(self.responseWeatherApi.getTempMin()))
-                      
-                       
-                        var tempMax = String(Int(self.responseWeatherApi.getTempMax()))
-                        //let indexMax = tempMin.index(tempMax.endIndex, offsetBy: -2)
-                        //tempMax = tempMax.substring(to: indexMax)
                         
-                        self.maxMinTempLabel.text = tempMax + " " + tempMin
+                        let tempMin = String(Int(self.responseWeatherApi.getTempMin())) + "°"
+                        let tempMax = String(Int(self.responseWeatherApi.getTempMax())) + "°"
+                        
+                        self.maxMinTempLabel.text = tempMax + "  " + tempMin
                     }
-                }catch let error as Error {
+                } catch let error as Error {
                     
                 }
             }
