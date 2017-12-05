@@ -126,16 +126,32 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
                 do {
                 let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
                     let tmp = responseWeatherApi.getDayItemsForDetail()
-            
-                dayItem = tmp
-                dayItem.insert("FakeMon", at: 0)
-                dayItem.insert("FakeMon", at: 4)
-                dayItem.insert("FakeMon", at: 8)
-                dayItem.insert("FakeMon", at: 12)
-                dayItem.insert("FakeMon", at: 16)
-
-                group.leave()
-            
+                    
+                    let dateFormatterForDetail = DateFormatter()
+                    dateFormatterForDetail.timeZone = NSTimeZone(name: (self.city.timeZoneId))! as TimeZone
+                    dateFormatterForDetail.dateFormat = "EEE"
+                    
+                    let today = Date()
+                    let day1 : Date = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+                    let day2 : Date = Calendar.current.date(byAdding: .day, value: 2, to: today)!
+                    let day3 : Date = Calendar.current.date(byAdding: .day, value: 3, to: today)!
+                    let day4 : Date = Calendar.current.date(byAdding: .day, value: 4, to: today)!
+                    let day5 : Date = Calendar.current.date(byAdding: .day, value: 5, to: today)!
+                    
+                    let day1Date = dateFormatterForDetail.string(from : day1)
+                    let day2Date = dateFormatterForDetail.string(from : day2)
+                    let day3Date = dateFormatterForDetail.string(from : day3)
+                    let day4Date = dateFormatterForDetail.string(from : day4)
+                    let day5Date = dateFormatterForDetail.string(from : day5)
+                    
+                    dayItem = tmp
+                    dayItem.insert(day1Date, at: 0)
+                    dayItem.insert(day2Date, at: 4)
+                    dayItem.insert(day3Date, at: 8)
+                    dayItem.insert(day4Date, at: 12)
+                    dayItem.insert(day5Date, at: 16)
+                    
+                    group.leave()
             
                 } catch let error as Error {
                 //Handling error
