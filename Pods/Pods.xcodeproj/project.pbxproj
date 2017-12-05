@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0736900106F603D9523562AD0BD9CB47 /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDF27FC693E39D0466C69BDF6FFF4F /* RequestParameters.swift */; };
-		1EE8AAE3BA7F1A35F055AF4B7D37B035 /* Pods-trial weather app-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4623E3C07A33ACD21C4086AE65CE985 /* Pods-trial weather app-dummy.m */; };
-		29089137C3667CA29848E8186166DE5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		2B4CA5D454E54176D262DD12589E4367 /* Pods-trial weather app-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 555FD011BCF126F47CED315EDD3741BC /* Pods-trial weather app-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BAC7BB4D4E35C2A3FA245924E737D71 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6019975470F8A89E0011B4D727C8AE7E /* PlistManager.swift */; };
-		387276BBF607DB56B6E7AAAFF38F0F8E /* OpenWeatherMapAPIConsumer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C06C659E4EF13DF83EF1CC6230529DC /* OpenWeatherMapAPIConsumer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48BBAA904BA5B62A3D823ED4CCD9B7B7 /* ResponseOpenWeatherMapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1764A1BB156744277D9B693A59C840F /* ResponseOpenWeatherMapProtocol.swift */; };
-		57E8551D2AEF47ADFEA6BF2EADB0EE65 /* ForecastResponseOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B99FD129FE29419A972850AB4995 /* ForecastResponseOpenWeatherMap.swift */; };
-		656CF5F33FF1673F6640AA9065917DF6 /* OpenWeatherMapAPIConsumer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DDF80B11A6C50A6ED9FB5C163E0BDB /* OpenWeatherMapAPIConsumer-dummy.m */; };
-		66462C58CEE44D4077953C5314A45BE3 /* OpenWeatherMapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCAFAB0086627B1080BC51B2FFADF6 /* OpenWeatherMapAPI.swift */; };
-		A2D5D7E03A327A4EFB1EFAC0A0A9FD4E /* RequestOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1885F21BEAAF9E25460A5DE50A433B /* RequestOpenWeatherMap.swift */; };
-		B0EE18439AE75B75D63812DE86502A6C /* ResponseOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BB7A4ACD51ABE23561BF6C3D00F85 /* ResponseOpenWeatherMap.swift */; };
-		BC39F83A774C0BD4B0BB17B20F37D0DB /* IconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4DF96FC4DCACCA80BAC74077A0903 /* IconList.swift */; };
-		E0D09EA8D30C377B16BC627D472DA8E1 /* CurrentResponseOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828B0EA366A9DB1DB2B1796CE0FC41B /* CurrentResponseOpenWeatherMap.swift */; };
-		EF5A192BAB37EFC898AAE4C0E45E676F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		0736900106F603D9523562AD0BD9CB47 /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825099F3B60872690A231E1D8F81ECB6 /* RequestParameters.swift */; };
+		29089137C3667CA29848E8186166DE5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */; };
+		2BAC7BB4D4E35C2A3FA245924E737D71 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BA0F3B90474F1CA95AED392E27D89F /* PlistManager.swift */; };
+		387276BBF607DB56B6E7AAAFF38F0F8E /* OpenWeatherMapAPIConsumer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F31015AC9B2670A301448AE1C2D417C1 /* OpenWeatherMapAPIConsumer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48BBAA904BA5B62A3D823ED4CCD9B7B7 /* ResponseOpenWeatherMapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C93C6B98879898F66B3BB294F209F3 /* ResponseOpenWeatherMapProtocol.swift */; };
+		4FB7E25F2EBE233C7C7C9BDFA5A6103D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */; };
+		57E8551D2AEF47ADFEA6BF2EADB0EE65 /* ForecastResponseOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3B61BF6DCC033EDD4120290AE8CEA /* ForecastResponseOpenWeatherMap.swift */; };
+		656CF5F33FF1673F6640AA9065917DF6 /* OpenWeatherMapAPIConsumer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5DAF1DD140A9989ACF975B8ADF4FBD /* OpenWeatherMapAPIConsumer-dummy.m */; };
+		66462C58CEE44D4077953C5314A45BE3 /* OpenWeatherMapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE1B475A3238D95992CB5B6958DE23 /* OpenWeatherMapAPI.swift */; };
+		6B186DF54FCA1B4A0B144566743C1C7C /* Toast-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4191281A1A7B258D01D452D737EB3015 /* Toast-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A7FC99B3D680D3D8E6F2D8D233C32F1 /* Pods-trial weather app-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4623E3C07A33ACD21C4086AE65CE985 /* Pods-trial weather app-dummy.m */; };
+		94DC49B16E42ADE3D0D8FFF9C9793B11 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEABC4DC8790D83D2EE0207B1196EDDA /* Toast.swift */; };
+		A2D5D7E03A327A4EFB1EFAC0A0A9FD4E /* RequestOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB024F1FF7BA4D6EE2D696A91123922B /* RequestOpenWeatherMap.swift */; };
+		AEC1304FBD970E4742976EC205D2400B /* Toast-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AB3B7C21789E88C5C80D6F9E92B9AD /* Toast-Swift-dummy.m */; };
+		B0EE18439AE75B75D63812DE86502A6C /* ResponseOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F77514D9A0D0EE56CCE8F860CD359FB /* ResponseOpenWeatherMap.swift */; };
+		BC39F83A774C0BD4B0BB17B20F37D0DB /* IconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6CF33DF15EC45F36D58F81037FBF3 /* IconList.swift */; };
+		C1060CADC0E432AD7A935B6FFB2B7282 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */; };
+		D4614CDD72E2BFA8065B2AF5CAE6A8AF /* Pods-trial weather app-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 555FD011BCF126F47CED315EDD3741BC /* Pods-trial weather app-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E0D09EA8D30C377B16BC627D472DA8E1 /* CurrentResponseOpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BC15349641130146259201F25F7C35 /* CurrentResponseOpenWeatherMap.swift */; };
+		FD062392ED45730B1ED1A73FA6D6BDC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5E006D181BB4FD01589F198C6BF9AECD /* PBXContainerItemProxy */ = {
+		B8F34C7694499BF469B18739822495FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82C75C547C2D1BEBD040D1CC2E824A73;
+			remoteInfo = "Toast-Swift";
+		};
+		CFB3B0D01EAEF609A59FCAA88A113A43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -35,43 +47,52 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02BB403974C40EAFE033256B11B60145 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
-		0B1885F21BEAAF9E25460A5DE50A433B /* RequestOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/RequestOpenWeatherMap.swift; sourceTree = "<group>"; };
-		0C06C659E4EF13DF83EF1CC6230529DC /* OpenWeatherMapAPIConsumer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OpenWeatherMapAPIConsumer-umbrella.h"; sourceTree = "<group>"; };
+		042333C5EF04C8F69DAD06BF09A60245 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		06AB3B7C21789E88C5C80D6F9E92B9AD /* Toast-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-Swift-dummy.m"; sourceTree = "<group>"; };
+		083E10D17542A43BB7961605E9BBD811 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		0AB4951F3EAB2DC777769012C71159E3 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		0C904080AA780D29D58CBAF3B4256A2A /* Pods-trial weather app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-trial weather app.debug.xcconfig"; sourceTree = "<group>"; };
-		149BB7A4ACD51ABE23561BF6C3D00F85 /* ResponseOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/ResponseOpenWeatherMap.swift; sourceTree = "<group>"; };
-		1DF3BA83AB376D9B2B52A957CC124E29 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DC75F402B31F75360B14C5AC66D0F1D /* Toast-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-prefix.pch"; sourceTree = "<group>"; };
+		17E6CF33DF15EC45F36D58F81037FBF3 /* IconList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconList.swift; path = OpenWeatherMapAPIConsumer/Classes/IconList.swift; sourceTree = "<group>"; };
+		1894FC031D4BBCBA86223C219E320692 /* OpenWeatherMapAPIConsumer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = OpenWeatherMapAPIConsumer.modulemap; sourceTree = "<group>"; };
+		26BC15349641130146259201F25F7C35 /* CurrentResponseOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrentResponseOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/CurrentResponseOpenWeatherMap.swift; sourceTree = "<group>"; };
+		2963DC6358A2EA134E066628639BB897 /* Pods_trial_weather_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_trial_weather_app.framework; path = "Pods-trial weather app.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C67F323745C5C6D8220BB8C916EAB9B /* Toast-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Toast-Swift.modulemap"; sourceTree = "<group>"; };
+		2F46223F3180F5D1F92977C8B6D0A7B5 /* Toast-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.xcconfig"; sourceTree = "<group>"; };
+		2FA710C2CB4E6E4528F6614A27417A96 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
 		32DFEF427A9A60640106487CDF92B413 /* Pods-trial weather app.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-trial weather app.modulemap"; sourceTree = "<group>"; };
-		37637D9ACE8DC0E2FD450EDD14DB59B0 /* OpenWeatherMapAPIConsumer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = OpenWeatherMapAPIConsumer.modulemap; sourceTree = "<group>"; };
+		3C42C989DDB194A8B87DCA58C8991F02 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		3F77514D9A0D0EE56CCE8F860CD359FB /* ResponseOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/ResponseOpenWeatherMap.swift; sourceTree = "<group>"; };
+		4191281A1A7B258D01D452D737EB3015 /* Toast-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-umbrella.h"; sourceTree = "<group>"; };
 		4702A88ED4C0611214D79FB1EDB85447 /* Pods-trial weather app-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-trial weather app-acknowledgements.plist"; sourceTree = "<group>"; };
+		49F3B61BF6DCC033EDD4120290AE8CEA /* ForecastResponseOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ForecastResponseOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/ForecastResponseOpenWeatherMap.swift; sourceTree = "<group>"; };
+		4DEACAC390A2F02290AA5FA34C35255F /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Toast_Swift.framework; path = "Toast-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		555FD011BCF126F47CED315EDD3741BC /* Pods-trial weather app-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-trial weather app-umbrella.h"; sourceTree = "<group>"; };
-		577876078E3A5E23E7CDF823F1F3836B /* Pods_trial_weather_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_trial_weather_app.framework; path = "Pods-trial weather app.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		57EF73A8249AD3819D2C6769039D346B /* OpenWeatherMapAPIConsumer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OpenWeatherMapAPIConsumer.framework; path = OpenWeatherMapAPIConsumer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CDDF27FC693E39D0466C69BDF6FFF4F /* RequestParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestParameters.swift; path = OpenWeatherMapAPIConsumer/Classes/RequestParameters.swift; sourceTree = "<group>"; };
-		5E3FF730562679247D677F08EBB0FA33 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
-		6019975470F8A89E0011B4D727C8AE7E /* PlistManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlistManager.swift; path = OpenWeatherMapAPIConsumer/Classes/PlistManager.swift; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6E211FCAE23D8908082AA4F76631918E /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlacePicker.framework; path = Frameworks/GooglePlacePicker.framework; sourceTree = "<group>"; };
+		557E2BA9DDE53B5CED52550C3E2B2CF4 /* OpenWeatherMapAPIConsumer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OpenWeatherMapAPIConsumer.xcconfig; sourceTree = "<group>"; };
+		5A0F04E9355AA7A5146603A939973C2D /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
+		691E5B8A621045F05724CA499C8859B8 /* OpenWeatherMapAPIConsumer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OpenWeatherMapAPIConsumer-prefix.pch"; sourceTree = "<group>"; };
 		717AE12030C40B116B93A80E2A16FDDE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		866740C24D8D6AD51ABF66C96363848E /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		796BDCA40AE59F284E66B7E3A894283C /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlacePicker.framework; path = Frameworks/GooglePlacePicker.framework; sourceTree = "<group>"; };
+		7DBE1B475A3238D95992CB5B6958DE23 /* OpenWeatherMapAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenWeatherMapAPI.swift; path = OpenWeatherMapAPIConsumer/Classes/OpenWeatherMapAPI.swift; sourceTree = "<group>"; };
+		825099F3B60872690A231E1D8F81ECB6 /* RequestParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestParameters.swift; path = OpenWeatherMapAPIConsumer/Classes/RequestParameters.swift; sourceTree = "<group>"; };
+		8D461B9145147F48F4BC487B3A4FBB79 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94DDF80B11A6C50A6ED9FB5C163E0BDB /* OpenWeatherMapAPIConsumer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OpenWeatherMapAPIConsumer-dummy.m"; sourceTree = "<group>"; };
-		983F7FE4BA8860096E1F4B370BAC42A8 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		996F7029ED7EAAF692444A491A5FCE28 /* Pods-trial weather app-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-trial weather app-frameworks.sh"; sourceTree = "<group>"; };
-		9CFCAFAB0086627B1080BC51B2FFADF6 /* OpenWeatherMapAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenWeatherMapAPI.swift; path = OpenWeatherMapAPIConsumer/Classes/OpenWeatherMapAPI.swift; sourceTree = "<group>"; };
-		A1764A1BB156744277D9B693A59C840F /* ResponseOpenWeatherMapProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseOpenWeatherMapProtocol.swift; path = OpenWeatherMapAPIConsumer/Classes/ResponseOpenWeatherMapProtocol.swift; sourceTree = "<group>"; };
 		A4623E3C07A33ACD21C4086AE65CE985 /* Pods-trial weather app-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-trial weather app-dummy.m"; sourceTree = "<group>"; };
-		AAE54CDFABCE66BCD3D4AAF12E9BE0E9 /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
+		A8BA0F3B90474F1CA95AED392E27D89F /* PlistManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlistManager.swift; path = OpenWeatherMapAPIConsumer/Classes/PlistManager.swift; sourceTree = "<group>"; };
 		B32B32E7350CC49DC9245D0DD11E1F8C /* Pods-trial weather app-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-trial weather app-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B828B0EA366A9DB1DB2B1796CE0FC41B /* CurrentResponseOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrentResponseOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/CurrentResponseOpenWeatherMap.swift; sourceTree = "<group>"; };
-		CDBCB734518083604D52D92EC906DB5D /* OpenWeatherMapAPIConsumer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OpenWeatherMapAPIConsumer-prefix.pch"; sourceTree = "<group>"; };
-		DA43B82E89FC9641BBAE6B910FB5AEF7 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
-		DCC4E4BBD57647DFA93538BAA643CCB2 /* OpenWeatherMapAPIConsumer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OpenWeatherMapAPIConsumer.xcconfig; sourceTree = "<group>"; };
+		B6C93C6B98879898F66B3BB294F209F3 /* ResponseOpenWeatherMapProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseOpenWeatherMapProtocol.swift; path = OpenWeatherMapAPIConsumer/Classes/ResponseOpenWeatherMapProtocol.swift; sourceTree = "<group>"; };
+		C1D97B503EBE9BBB00A205A8E9CF7824 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C325B423E74ABE5630B3786C00B894F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C94CABADA7D073D4DCFF53F61C4527E4 /* OpenWeatherMapAPIConsumer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OpenWeatherMapAPIConsumer.framework; path = OpenWeatherMapAPIConsumer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB024F1FF7BA4D6EE2D696A91123922B /* RequestOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/RequestOpenWeatherMap.swift; sourceTree = "<group>"; };
+		CB5DAF1DD140A9989ACF975B8ADF4FBD /* OpenWeatherMapAPIConsumer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OpenWeatherMapAPIConsumer-dummy.m"; sourceTree = "<group>"; };
 		E6C6412EC26D2491C46095841E23E073 /* Pods-trial weather app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-trial weather app.release.xcconfig"; sourceTree = "<group>"; };
+		EEABC4DC8790D83D2EE0207B1196EDDA /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = Toast/Toast.swift; sourceTree = "<group>"; };
 		F17AAA248F493DBEF654E7A474BA99FE /* Pods-trial weather app-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-trial weather app-resources.sh"; sourceTree = "<group>"; };
-		F510B5F724656E1C63F00363C66C5CC2 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
-		FA65B99FD129FE29419A972850AB4995 /* ForecastResponseOpenWeatherMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ForecastResponseOpenWeatherMap.swift; path = OpenWeatherMapAPIConsumer/Classes/ForecastResponseOpenWeatherMap.swift; sourceTree = "<group>"; };
-		FAC4DF96FC4DCACCA80BAC74077A0903 /* IconList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconList.swift; path = OpenWeatherMapAPIConsumer/Classes/IconList.swift; sourceTree = "<group>"; };
+		F31015AC9B2670A301448AE1C2D417C1 /* OpenWeatherMapAPIConsumer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OpenWeatherMapAPIConsumer-umbrella.h"; sourceTree = "<group>"; };
+		FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,114 +104,173 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8543172B6FA82EA67DB1635857171579 /* Frameworks */ = {
+		629D7F29333C4EF97D50A944047C0E7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5A192BAB37EFC898AAE4C0E45E676F /* Foundation.framework in Frameworks */,
+				FD062392ED45730B1ED1A73FA6D6BDC5 /* Foundation.framework in Frameworks */,
+				4FB7E25F2EBE233C7C7C9BDFA5A6103D /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CFDF06D7E3473A70B1495FF0429DF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1060CADC0E432AD7A935B6FFB2B7282 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08161B6FBE6A19CD21D9A0D6C070F2B3 /* Resources */ = {
+		1507E99B58ECDA83CD5267D7BBB1D21F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				983F7FE4BA8860096E1F4B370BAC42A8 /* GoogleMaps.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		0859BCB7889D097AB301D6D8852ED2B3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E94196E1F13DC0F543DE4AEF292321AA /* GoogleMaps */,
-				8B3F8624D4162B5B077414F587BC02ED /* GooglePlacePicker */,
-				4FBB0FDCF6BA2D92998A89BA7BBA1895 /* GooglePlaces */,
-				6AED9BFC7549406191B528088AF95C5A /* OpenWeatherMapAPIConsumer */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		1561864B6E73288C0FAFA1B386834B51 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6E211FCAE23D8908082AA4F76631918E /* GooglePlacePicker.framework */,
+				8D461B9145147F48F4BC487B3A4FBB79 /* GooglePlaces.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		33C6F38A28DFEBCD26CD269F148B133C /* Frameworks */ = {
+		16E12C071B395042D6B417CD51CB761E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				02BB403974C40EAFE033256B11B60145 /* GoogleMaps.framework */,
-				866740C24D8D6AD51ABF66C96363848E /* GoogleMapsCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4FBB0FDCF6BA2D92998A89BA7BBA1895 /* GooglePlaces */ = {
-			isa = PBXGroup;
-			children = (
-				CD95C30C6D073947EB51DE5688FC8F8E /* Frameworks */,
-				93B6C2FEDD0EC17F0A9EAFEB90EDB559 /* Resources */,
-			);
-			name = GooglePlaces;
-			path = GooglePlaces;
-			sourceTree = "<group>";
-		};
-		64CC3A617682629FC05A2ED84F4AB5EE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1DF3BA83AB376D9B2B52A957CC124E29 /* Info.plist */,
-				37637D9ACE8DC0E2FD450EDD14DB59B0 /* OpenWeatherMapAPIConsumer.modulemap */,
-				DCC4E4BBD57647DFA93538BAA643CCB2 /* OpenWeatherMapAPIConsumer.xcconfig */,
-				94DDF80B11A6C50A6ED9FB5C163E0BDB /* OpenWeatherMapAPIConsumer-dummy.m */,
-				CDBCB734518083604D52D92EC906DB5D /* OpenWeatherMapAPIConsumer-prefix.pch */,
-				0C06C659E4EF13DF83EF1CC6230529DC /* OpenWeatherMapAPIConsumer-umbrella.h */,
+				C1D97B503EBE9BBB00A205A8E9CF7824 /* Info.plist */,
+				1894FC031D4BBCBA86223C219E320692 /* OpenWeatherMapAPIConsumer.modulemap */,
+				557E2BA9DDE53B5CED52550C3E2B2CF4 /* OpenWeatherMapAPIConsumer.xcconfig */,
+				CB5DAF1DD140A9989ACF975B8ADF4FBD /* OpenWeatherMapAPIConsumer-dummy.m */,
+				691E5B8A621045F05724CA499C8859B8 /* OpenWeatherMapAPIConsumer-prefix.pch */,
+				F31015AC9B2670A301448AE1C2D417C1 /* OpenWeatherMapAPIConsumer-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/OpenWeatherMapAPIConsumer";
 			sourceTree = "<group>";
 		};
-		6AED9BFC7549406191B528088AF95C5A /* OpenWeatherMapAPIConsumer */ = {
+		2E46850C9689203C31DD03BB1A6C653F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B828B0EA366A9DB1DB2B1796CE0FC41B /* CurrentResponseOpenWeatherMap.swift */,
-				FA65B99FD129FE29419A972850AB4995 /* ForecastResponseOpenWeatherMap.swift */,
-				FAC4DF96FC4DCACCA80BAC74077A0903 /* IconList.swift */,
-				9CFCAFAB0086627B1080BC51B2FFADF6 /* OpenWeatherMapAPI.swift */,
-				6019975470F8A89E0011B4D727C8AE7E /* PlistManager.swift */,
-				0B1885F21BEAAF9E25460A5DE50A433B /* RequestOpenWeatherMap.swift */,
-				5CDDF27FC693E39D0466C69BDF6FFF4F /* RequestParameters.swift */,
-				149BB7A4ACD51ABE23561BF6C3D00F85 /* ResponseOpenWeatherMap.swift */,
-				A1764A1BB156744277D9B693A59C840F /* ResponseOpenWeatherMapProtocol.swift */,
-				64CC3A617682629FC05A2ED84F4AB5EE /* Support Files */,
+				3C42C989DDB194A8B87DCA58C8991F02 /* GoogleMaps.framework */,
+				2FA710C2CB4E6E4528F6614A27417A96 /* GoogleMapsCore.framework */,
 			);
-			name = OpenWeatherMapAPIConsumer;
-			path = OpenWeatherMapAPIConsumer;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3048CA6F4DDDC71F52C88AFDE65B6E0E /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				1507E99B58ECDA83CD5267D7BBB1D21F /* Frameworks */,
+				4F9EDB05E82FB69D1424A49ACF1DC5DE /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		3567BD7F316E3E50DF6A3F209774BFB7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				68B9B3F2E2677896BDAA73AE4C40FD6A /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		3E040A30663D16C0871ED60A14EDAC9D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5A0F04E9355AA7A5146603A939973C2D /* GooglePlacePicker.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3E11454B77622A250DB54EFAC48665F0 /* Toast-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				EEABC4DC8790D83D2EE0207B1196EDDA /* Toast.swift */,
+				F3B20AD06CF8F8064A86E9353F518126 /* Support Files */,
+			);
+			name = "Toast-Swift";
+			path = "Toast-Swift";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				978007DCB56F415BE390E0F949D4D4E5 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F9EDB05E82FB69D1424A49ACF1DC5DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				042333C5EF04C8F69DAD06BF09A60245 /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		55B274B80BB5D2BE4BA73DDF06D9FBDA /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				3567BD7F316E3E50DF6A3F209774BFB7 /* Base */,
+				8C7283C2AF0DE78811802AA71D843BBD /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		5E0A4E165F085301667F347C7824DCE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C94CABADA7D073D4DCFF53F61C4527E4 /* OpenWeatherMapAPIConsumer.framework */,
+				2963DC6358A2EA134E066628639BB897 /* Pods_trial_weather_app.framework */,
+				4DEACAC390A2F02290AA5FA34C35255F /* Toast_Swift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64B4EC3B92B4893858CD95CDA8165782 /* GooglePlacePicker */ = {
+			isa = PBXGroup;
+			children = (
+				83B67AF29962FF8BC4609245BBE5601B /* Frameworks */,
+				3E040A30663D16C0871ED60A14EDAC9D /* Resources */,
+			);
+			name = GooglePlacePicker;
+			path = GooglePlacePicker;
+			sourceTree = "<group>";
+		};
+		68B9B3F2E2677896BDAA73AE4C40FD6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				083E10D17542A43BB7961605E9BBD811 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				0859BCB7889D097AB301D6D8852ED2B3 /* Pods */,
-				9C5E024DBF10F694045B0C4685C91909 /* Products */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				EB7CCA35386831D19C1F49A7002476A6 /* Pods */,
+				5E0A4E165F085301667F347C7824DCE0 /* Products */,
 				8FC602A1E3668D6B8E95A5BA0CFB0A98 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8B3F8624D4162B5B077414F587BC02ED /* GooglePlacePicker */ = {
+		83B67AF29962FF8BC4609245BBE5601B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1561864B6E73288C0FAFA1B386834B51 /* Frameworks */,
-				FA8C2A8AF9A4653EFC106E954BBADCD6 /* Resources */,
+				796BDCA40AE59F284E66B7E3A894283C /* GooglePlacePicker.framework */,
 			);
-			name = GooglePlacePicker;
-			path = GooglePlacePicker;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C7283C2AF0DE78811802AA71D843BBD /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				2E46850C9689203C31DD03BB1A6C653F /* Frameworks */,
+				9A3F12948E0F1B9DA8D5A06E463B5D85 /* Resources */,
+			);
+			name = Maps;
 			sourceTree = "<group>";
 		};
 		8FC602A1E3668D6B8E95A5BA0CFB0A98 /* Targets Support Files */ = {
@@ -201,37 +281,39 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		931AB98F296743E4860140F8FC0C7B6D /* Frameworks */ = {
+		978007DCB56F415BE390E0F949D4D4E5 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				5E3FF730562679247D677F08EBB0FA33 /* GoogleMapsBase.framework */,
+				54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */,
+				FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */,
 			);
-			name = Frameworks;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		93B6C2FEDD0EC17F0A9EAFEB90EDB559 /* Resources */ = {
+		9A3F12948E0F1B9DA8D5A06E463B5D85 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F510B5F724656E1C63F00363C66C5CC2 /* GooglePlaces.bundle */,
+				0AB4951F3EAB2DC777769012C71159E3 /* GoogleMaps.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		9C5E024DBF10F694045B0C4685C91909 /* Products */ = {
+		A4666456B2CF87029C1C07A4B6002B5A /* OpenWeatherMapAPIConsumer */ = {
 			isa = PBXGroup;
 			children = (
-				57EF73A8249AD3819D2C6769039D346B /* OpenWeatherMapAPIConsumer.framework */,
-				577876078E3A5E23E7CDF823F1F3836B /* Pods_trial_weather_app.framework */,
+				26BC15349641130146259201F25F7C35 /* CurrentResponseOpenWeatherMap.swift */,
+				49F3B61BF6DCC033EDD4120290AE8CEA /* ForecastResponseOpenWeatherMap.swift */,
+				17E6CF33DF15EC45F36D58F81037FBF3 /* IconList.swift */,
+				7DBE1B475A3238D95992CB5B6958DE23 /* OpenWeatherMapAPI.swift */,
+				A8BA0F3B90474F1CA95AED392E27D89F /* PlistManager.swift */,
+				CB024F1FF7BA4D6EE2D696A91123922B /* RequestOpenWeatherMap.swift */,
+				825099F3B60872690A231E1D8F81ECB6 /* RequestParameters.swift */,
+				3F77514D9A0D0EE56CCE8F860CD359FB /* ResponseOpenWeatherMap.swift */,
+				B6C93C6B98879898F66B3BB294F209F3 /* ResponseOpenWeatherMapProtocol.swift */,
+				16E12C071B395042D6B417CD51CB761E /* Support Files */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A4745B437631D63ECF0F842198AA1ADC /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				931AB98F296743E4860140F8FC0C7B6D /* Frameworks */,
-			);
-			name = Base;
+			name = OpenWeatherMapAPIConsumer;
+			path = OpenWeatherMapAPIConsumer;
 			sourceTree = "<group>";
 		};
 		AF1AD4EBDF632C05DD49CC603E1D4ADB /* Pods-trial weather app */ = {
@@ -252,73 +334,56 @@
 			path = "Target Support Files/Pods-trial weather app";
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		EB7CCA35386831D19C1F49A7002476A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+				55B274B80BB5D2BE4BA73DDF06D9FBDA /* GoogleMaps */,
+				64B4EC3B92B4893858CD95CDA8165782 /* GooglePlacePicker */,
+				3048CA6F4DDDC71F52C88AFDE65B6E0E /* GooglePlaces */,
+				A4666456B2CF87029C1C07A4B6002B5A /* OpenWeatherMapAPIConsumer */,
+				3E11454B77622A250DB54EFAC48665F0 /* Toast-Swift */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		CD95C30C6D073947EB51DE5688FC8F8E /* Frameworks */ = {
+		F3B20AD06CF8F8064A86E9353F518126 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DA43B82E89FC9641BBAE6B910FB5AEF7 /* GooglePlaces.framework */,
+				C325B423E74ABE5630B3786C00B894F4 /* Info.plist */,
+				2C67F323745C5C6D8220BB8C916EAB9B /* Toast-Swift.modulemap */,
+				2F46223F3180F5D1F92977C8B6D0A7B5 /* Toast-Swift.xcconfig */,
+				06AB3B7C21789E88C5C80D6F9E92B9AD /* Toast-Swift-dummy.m */,
+				0DC75F402B31F75360B14C5AC66D0F1D /* Toast-Swift-prefix.pch */,
+				4191281A1A7B258D01D452D737EB3015 /* Toast-Swift-umbrella.h */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CE9B8847FBA7E2B1B66542E629DC513A /* Maps */ = {
-			isa = PBXGroup;
-			children = (
-				33C6F38A28DFEBCD26CD269F148B133C /* Frameworks */,
-				08161B6FBE6A19CD21D9A0D6C070F2B3 /* Resources */,
-			);
-			name = Maps;
-			sourceTree = "<group>";
-		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		E94196E1F13DC0F543DE4AEF292321AA /* GoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				A4745B437631D63ECF0F842198AA1ADC /* Base */,
-				CE9B8847FBA7E2B1B66542E629DC513A /* Maps */,
-			);
-			name = GoogleMaps;
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		FA8C2A8AF9A4653EFC106E954BBADCD6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				AAE54CDFABCE66BCD3D4AAF12E9BE0E9 /* GooglePlacePicker.bundle */,
-			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/Toast-Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		66335A58ABD11D9185A414A059531C59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B186DF54FCA1B4A0B144566743C1C7C /* Toast-Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B178C12B068FDE2FAAE916B50F59E69 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4614CDD72E2BFA8065B2AF5CAE6A8AF /* Pods-trial weather app-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9E2AE57E1136F0CADF697D9934E6356 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				387276BBF607DB56B6E7AAAFF38F0F8E /* OpenWeatherMapAPIConsumer-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECD621A149BAE8E7554A6D828F91A44F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B4CA5D454E54176D262DD12589E4367 /* Pods-trial weather app-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,25 +404,43 @@
 			);
 			name = OpenWeatherMapAPIConsumer;
 			productName = OpenWeatherMapAPIConsumer;
-			productReference = 57EF73A8249AD3819D2C6769039D346B /* OpenWeatherMapAPIConsumer.framework */;
+			productReference = C94CABADA7D073D4DCFF53F61C4527E4 /* OpenWeatherMapAPIConsumer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		84F057953F76CC95EA300D14105F83D9 /* Pods-trial weather app */ = {
+		82C75C547C2D1BEBD040D1CC2E824A73 /* Toast-Swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECA57E6FA78804C240BF1BDF7A67F3AA /* Build configuration list for PBXNativeTarget "Pods-trial weather app" */;
+			buildConfigurationList = C513462F59AD1CAE7F66B96061A20894 /* Build configuration list for PBXNativeTarget "Toast-Swift" */;
 			buildPhases = (
-				C2E4A634481556121AF920881222D070 /* Sources */,
-				8543172B6FA82EA67DB1635857171579 /* Frameworks */,
-				ECD621A149BAE8E7554A6D828F91A44F /* Headers */,
+				C83AE41316ADEE88C421AF52D8D0150E /* Sources */,
+				629D7F29333C4EF97D50A944047C0E7B /* Frameworks */,
+				66335A58ABD11D9185A414A059531C59 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				14D5D0BEDD3A0823D676D4A7ACFB791B /* PBXTargetDependency */,
+			);
+			name = "Toast-Swift";
+			productName = "Toast-Swift";
+			productReference = 4DEACAC390A2F02290AA5FA34C35255F /* Toast_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F98E9201B353FBB6E5541118CF7E5D3B /* Pods-trial weather app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1DD2DDA313B3E5F3FC741D45C9035D4 /* Build configuration list for PBXNativeTarget "Pods-trial weather app" */;
+			buildPhases = (
+				382362BAEA2C52E94766039F24468B4D /* Sources */,
+				84CFDF06D7E3473A70B1495FF0429DF7 /* Frameworks */,
+				9B178C12B068FDE2FAAE916B50F59E69 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D28F1C1037CF787B060EAB5333FF924A /* PBXTargetDependency */,
+				E31301D631BC9AABFCC37AE976B0D871 /* PBXTargetDependency */,
 			);
 			name = "Pods-trial weather app";
 			productName = "Pods-trial weather app";
-			productReference = 577876078E3A5E23E7CDF823F1F3836B /* Pods_trial_weather_app.framework */;
+			productReference = 2963DC6358A2EA134E066628639BB897 /* Pods_trial_weather_app.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -377,17 +460,26 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 9C5E024DBF10F694045B0C4685C91909 /* Products */;
+			productRefGroup = 5E0A4E165F085301667F347C7824DCE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				00B57FE88FCD68D67A102C5D78FE8EA9 /* OpenWeatherMapAPIConsumer */,
-				84F057953F76CC95EA300D14105F83D9 /* Pods-trial weather app */,
+				F98E9201B353FBB6E5541118CF7E5D3B /* Pods-trial weather app */,
+				82C75C547C2D1BEBD040D1CC2E824A73 /* Toast-Swift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		382362BAEA2C52E94766039F24468B4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A7FC99B3D680D3D8E6F2D8D233C32F1 /* Pods-trial weather app-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		750871B2AB9B9E2CACA9A8DC76CB2F2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,27 +497,89 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C2E4A634481556121AF920881222D070 /* Sources */ = {
+		C83AE41316ADEE88C421AF52D8D0150E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EE8AAE3BA7F1A35F055AF4B7D37B035 /* Pods-trial weather app-dummy.m in Sources */,
+				AEC1304FBD970E4742976EC205D2400B /* Toast-Swift-dummy.m in Sources */,
+				94DC49B16E42ADE3D0D8FFF9C9793B11 /* Toast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		14D5D0BEDD3A0823D676D4A7ACFB791B /* PBXTargetDependency */ = {
+		D28F1C1037CF787B060EAB5333FF924A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OpenWeatherMapAPIConsumer;
 			target = 00B57FE88FCD68D67A102C5D78FE8EA9 /* OpenWeatherMapAPIConsumer */;
-			targetProxy = 5E006D181BB4FD01589F198C6BF9AECD /* PBXContainerItemProxy */;
+			targetProxy = CFB3B0D01EAEF609A59FCAA88A113A43 /* PBXContainerItemProxy */;
+		};
+		E31301D631BC9AABFCC37AE976B0D871 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Toast-Swift";
+			target = 82C75C547C2D1BEBD040D1CC2E824A73 /* Toast-Swift */;
+			targetProxy = B8F34C7694499BF469B18739822495FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		28B792BB4863F5B7F2EF27ADA2071BE1 /* Release */ = {
+		1D23278938ADF334174C5BF2A4B6B1B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		5ABA60446C9CEDDCA5EB5F9CB5946748 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6C6412EC26D2491C46095841E23E073 /* Pods-trial weather app.release.xcconfig */;
 			buildSettings = {
@@ -434,20 +588,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-trial weather app/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-trial weather app/Pods-trial weather app.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -456,58 +606,46 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		33F8F7AAAA85E50D89ADDD29179D4D1C /* Release */ = {
+		72A1C0762AE5FF2B907435D609580BCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F46223F3180F5D1F92977C8B6D0A7B5 /* Toast-Swift.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Toast-Swift/Toast-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toast-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Toast-Swift/Toast-Swift.modulemap";
+				PRODUCT_NAME = Toast_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		3FFDA60B749CD877F6402121A3FF9327 /* Debug */ = {
+		763F969CCB091E5FFAD74842DBE6ACB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C904080AA780D29D58CBAF3B4256A2A /* Pods-trial weather app.debug.xcconfig */;
 			buildSettings = {
@@ -516,20 +654,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-trial weather app/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-trial weather app/Pods-trial weather app.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -539,55 +673,96 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		56730A192FBFEB01207F5FA841EB3964 /* Debug */ = {
+		9628D7F64C5DBDDC4D4DE8D96A9E98BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F46223F3180F5D1F92977C8B6D0A7B5 /* Toast-Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Toast-Swift/Toast-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toast-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Toast-Swift/Toast-Swift.modulemap";
+				PRODUCT_NAME = Toast_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		995C3A53DEAA96B47E756185345E180D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -595,29 +770,25 @@
 			};
 			name = Debug;
 		};
-		975213164ECCA4BD3BDAC52EF81280B5 /* Release */ = {
+		A078A35C289B5B3C2C0678BA2FA59F18 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCC4E4BBD57647DFA93538BAA643CCB2 /* OpenWeatherMapAPIConsumer.xcconfig */;
+			baseConfigurationReference = 557E2BA9DDE53B5CED52550C3E2B2CF4 /* OpenWeatherMapAPIConsumer.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/OpenWeatherMapAPIConsumer/OpenWeatherMapAPIConsumer-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OpenWeatherMapAPIConsumer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/OpenWeatherMapAPIConsumer/OpenWeatherMapAPIConsumer.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = OpenWeatherMapAPIConsumer;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -625,34 +796,31 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		F591A74689C434EF068B7DA060C5E35F /* Debug */ = {
+		A7CA4108798EC014E87C5295C1955B25 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCC4E4BBD57647DFA93538BAA643CCB2 /* OpenWeatherMapAPIConsumer.xcconfig */;
+			baseConfigurationReference = 557E2BA9DDE53B5CED52550C3E2B2CF4 /* OpenWeatherMapAPIConsumer.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/OpenWeatherMapAPIConsumer/OpenWeatherMapAPIConsumer-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OpenWeatherMapAPIConsumer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/OpenWeatherMapAPIConsumer/OpenWeatherMapAPIConsumer.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = OpenWeatherMapAPIConsumer;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -671,8 +839,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				56730A192FBFEB01207F5FA841EB3964 /* Debug */,
-				33F8F7AAAA85E50D89ADDD29179D4D1C /* Release */,
+				995C3A53DEAA96B47E756185345E180D /* Debug */,
+				1D23278938ADF334174C5BF2A4B6B1B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -680,17 +848,26 @@
 		AF6A85CBBA9F421B067C40F463B1CA36 /* Build configuration list for PBXNativeTarget "OpenWeatherMapAPIConsumer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F591A74689C434EF068B7DA060C5E35F /* Debug */,
-				975213164ECCA4BD3BDAC52EF81280B5 /* Release */,
+				A7CA4108798EC014E87C5295C1955B25 /* Debug */,
+				A078A35C289B5B3C2C0678BA2FA59F18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECA57E6FA78804C240BF1BDF7A67F3AA /* Build configuration list for PBXNativeTarget "Pods-trial weather app" */ = {
+		C513462F59AD1CAE7F66B96061A20894 /* Build configuration list for PBXNativeTarget "Toast-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FFDA60B749CD877F6402121A3FF9327 /* Debug */,
-				28B792BB4863F5B7F2EF27ADA2071BE1 /* Release */,
+				9628D7F64C5DBDDC4D4DE8D96A9E98BA /* Debug */,
+				72A1C0762AE5FF2B907435D609580BCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1DD2DDA313B3E5F3FC741D45C9035D4 /* Build configuration list for PBXNativeTarget "Pods-trial weather app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				763F969CCB091E5FFAD74842DBE6ACB6 /* Debug */,
+				5ABA60446C9CEDDCA5EB5F9CB5946748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

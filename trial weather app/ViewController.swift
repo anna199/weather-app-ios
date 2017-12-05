@@ -8,6 +8,7 @@
 import UIKit
 import GooglePlaces
 import OpenWeatherMapAPIConsumer
+import Toast_Swift
 
 
 class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
@@ -192,6 +193,22 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             // Load the sample data.
         }
     }
+    func loadData2(citiesCount: Int){
+        var temp: Bool = true
+        if let savedCities = loadCities() {
+            temp = false
+            cities += savedCities
+        }
+        else {
+            // Load the sample data.
+        }
+        if (temp) {
+            //print("this is a error " + String(citiesCount) + " " + cities.count)
+            var style = ToastStyle()
+            self.view.makeToast("City already been added", duration: 3.0, position: .bottom, style: style)
+            // self.showAddOutfitAlert(message: "Error fetching the forecast weather", error: nil)
+        }
+    }
     private func loadCities() -> [City]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: City.ArchiveURL.path) as? [City]
     }
@@ -228,7 +245,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let searchController = UISearchController(searchResultsController: searchResultController)
         searchController.searchBar.delegate = self
         self.present(searchController, animated:true, completion: nil)
-       cities.removeAll()
+        cities.removeAll()
         loadData()
         self.tableView.reloadData()
     }
@@ -245,9 +262,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         loadData()
         self.tableView.reloadData()*/
         DispatchQueue.main.async { () -> Void in
-            
+            // var temp = self.cities.count;
             self.cities.removeAll()
-            self.loadData()
+            self.loadData2(citiesCount: 0)
             self.tableView.reloadData()
         }
     }

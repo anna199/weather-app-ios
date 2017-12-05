@@ -4,5 +4,6 @@ target 'trial weather app' do
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
   pod 'OpenWeatherMapAPIConsumer'
+  pod 'Toast-Swift', '~> 3.0.1' 
   use_frameworks!
 end
