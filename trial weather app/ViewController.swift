@@ -19,6 +19,21 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
     var temp: [String] = []
     
+    let defaults = UserDefaults.standard
+  
+    @IBAction func CFCoverter(_ sender: Any) {
+        if (defaults.string(forKey:"metric") == "F"){
+            print("C")
+            defaults.set("C", forKey: "metric")
+            
+        } else {
+             print("F")
+            defaults.set("F", forKey: "metric")
+        }
+        cities.removeAll()
+        loadData()
+        self.tableView.reloadData()
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -43,6 +58,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
 
         self.getLocaltime(city: city, cell:cell)
     
+        if (defaults.string(forKey:"metric") == "F") {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Fahrenheit)
+        } else {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        }
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             NSLog("Response Current Weather Done")
@@ -177,7 +197,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         //loadData()
         apiKey = "b4631e5c54e1a3a9fdda89fca90d4114"
         weatherAPI = OpenWeatherMapAPI(apiKey: self.apiKey, forType: OpenWeatherMapType.Current)
-        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        if (defaults.string(forKey:"metric") == "F") {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Fahrenheit)
+        } else {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

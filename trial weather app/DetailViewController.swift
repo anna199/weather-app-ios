@@ -22,6 +22,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     var weatherAPI : OpenWeatherMapAPI!
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
+    let defaults = UserDefaults.standard
 
     var items : [String] = []
     var dayItems : [String] = []
@@ -52,7 +53,11 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         apiKey = "b4631e5c54e1a3a9fdda89fca90d4114"
         weatherAPI = OpenWeatherMapAPI(apiKey: self.apiKey, forType: OpenWeatherMapType.Current)
-        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        if (defaults.string(forKey:"metric") == "F") {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Fahrenheit)
+        } else {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        }
         
         setCurrentTemp()
         
@@ -75,7 +80,11 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     func prepareItems() ->[String] {
         weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
-        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        if (defaults.string(forKey:"metric") == "F") {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Fahrenheit)
+        } else {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        }
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
         let group = DispatchGroup()
         group.enter()
@@ -108,8 +117,12 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func prepareDayItems() -> [String] {
         weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)
-        weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
         weatherAPI.weather(byLatitude: Double(city.lat)!, andLongitude: Double(city.lon)!)
+        if (defaults.string(forKey:"metric") == "F") {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Fahrenheit)
+        } else {
+            weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        }
         let group = DispatchGroup()
         group.enter()
         var dayItem : [String] =  []
