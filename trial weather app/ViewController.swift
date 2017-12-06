@@ -19,8 +19,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
     var temp: [String] = []
     let locationManager = CLLocationManager()
-    var currentlat: Double!
+    var cityCurrent: City!
     var currentlong: Double!
+    var currentlat: Double!
     
     let defaults = UserDefaults.standard
   
@@ -54,8 +55,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         
         // Fetches the appropriate meal for the data source layout.
         let city = cities[indexPath.row]
-        
-        cell.nameLabel.text = city.name
+        var fullNameArr = city.name.components(separatedBy: ",")
+        var firstName: String = fullNameArr[0]
+        cell.nameLabel.text = firstName
         print("&&&&&city.name: " + city.name)
 
 
@@ -139,7 +141,6 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         currentlat = locValue.latitude
         currentlong = locValue.longitude
-        currentcity = manager.location!.
         print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
@@ -152,6 +153,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         
         let myVC = storyboard?.instantiateViewController(withIdentifier: "detailViewIdentifier") as! DetailViewController
         myVC.city = cities[indexPath.row]
+        myVC.currentCity = cityCurrent
         navigationController?.pushViewController(myVC, animated: true)
         
         print(indexPath.row)
@@ -229,6 +231,13 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             currentLocation = locationManager.location
           currentlat = currentLocation.coordinate.latitude
             currentlong = currentLocation.coordinate.longitude
+            
+               var location = CLLocation(latitude: currentlat, longitude: currentlong)
+            fetchCountryAndCity(location: location) { country, city in
+                print("country:", country)
+                print("city:", city)
+                self.cityCurrent = City(name: city, lat: String(self.currentlat), lon: String(self.currentlong))
+            }
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -304,10 +313,36 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     
     @IBAction func AddCurrentCity(_ sender: Any) {
 //        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(currentlat) \(currentlong)")
-       // currenlat =
+        var isExist = false
+        for city in self.cities{
+            if (city.name == cityCurrent.name) {
+                isExist = true
+            }
+        }
+        if (cities != nil && isExist) {
+            var style = ToastStyle()
+            self.view.makeToast("City already been added", duration: 3.0, position: .bottom, style: style)
+        } else {
+            cities.append(cityCurrent)
+            self.saveCities()
+            self.cities.removeAll()
+            loadData()
+            self.tableView.reloadData()
+        }
         
     }
+    
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String, String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            } else if let country = placemarks?.first?.country,
+                let city = placemarks?.first?.locality {
+                completion(country, city)
+            }
+        }
+    }
+   
     /**
      Locate map with longitude and longitude after search location on UISearchBar
      

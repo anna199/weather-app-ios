@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "trial weather app/DetailViewController.swift"
-            timestampString = "534213302.911235"
+            timestampString = "534218932.862835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "prepareDayItems()"
             landmarkType = "7">
          </BreakpointContent>
