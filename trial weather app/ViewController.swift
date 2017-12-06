@@ -165,6 +165,9 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            cities.removeAll()
+            loadData()
+            self.tableView.reloadData()
             cities.remove(at: indexPath.row)
             saveCities()
             tableView.deleteRows(at: [indexPath], with: .fade)
