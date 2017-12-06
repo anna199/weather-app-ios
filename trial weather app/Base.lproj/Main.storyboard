@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,11 +80,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lch-V7-xa8" userLabel="ADDRESS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="o7N-Xa-RYN">
-                            <connections>
-                                <action selector="searchWithAddress:" destination="BYZ-38-t0r" id="rbM-Pi-7Fl"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="search" id="o7N-Xa-RYN">
+                                <connections>
+                                    <action selector="searchWithAddress:" destination="BYZ-38-t0r" id="rbM-Pi-7Fl"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add Current City" id="c2J-kY-GuT">
+                                <connections>
+                                    <action selector="AddCurrentCity:" destination="BYZ-38-t0r" id="SEB-4I-EdD"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="muf-Yg-DKo" id="9cg-ST-Zhe"/>

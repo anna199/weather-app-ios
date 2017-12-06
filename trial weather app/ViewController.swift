@@ -11,13 +11,16 @@ import OpenWeatherMapAPIConsumer
 import Toast_Swift
 
 
-class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
+class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate, CLLocationManagerDelegate {
     
     var cities = [City]()
     var weatherAPI : OpenWeatherMapAPI!
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
     var temp: [String] = []
+    let locationManager = CLLocationManager()
+    var currentlat: Double!
+    var currentlong: Double!
     
     let defaults = UserDefaults.standard
   
@@ -67,7 +70,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         weatherAPI.performWeatherRequest(completionHandler:{(data: Data?, urlResponse: URLResponse?, error: Error?) in
             NSLog("Response Current Weather Done")
             if (error != nil) {
-                self.showAddOutfitAlert(message: "Error fetching the current weather", error: error)
+//                self.showAddOutfitAlert(message: "Error fetching the current weather", error: error)
             } else {
                 do {
                     self.responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data!)
@@ -131,6 +134,13 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             print(error ?? "No error object")
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        currentlat = locValue.latitude
+        currentlong = locValue.longitude
+        currentcity = manager.location!.
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
     func tableView(_ tableView: UITableView,
@@ -201,6 +211,24 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Fahrenheit)
         } else {
             weatherAPI.setTemperatureUnit(unit: TemperatureFormat.Celsius)
+        }
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self as? CLLocationManagerDelegate
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+        
+//        }
+         var currentLocation: CLLocation!
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            currentLocation = locationManager.location
+          currentlat = currentLocation.coordinate.latitude
+            currentlong = currentLocation.coordinate.longitude
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -274,6 +302,12 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         self.tableView.reloadData()
     }
     
+    @IBAction func AddCurrentCity(_ sender: Any) {
+//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(currentlat) \(currentlong)")
+       // currenlat =
+        
+    }
     /**
      Locate map with longitude and longitude after search location on UISearchBar
      
