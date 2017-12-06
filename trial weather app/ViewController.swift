@@ -154,6 +154,8 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         let myVC = storyboard?.instantiateViewController(withIdentifier: "detailViewIdentifier") as! DetailViewController
         myVC.city = cities[indexPath.row]
         myVC.currentCity = cityCurrent
+        myVC.cursor = indexPath.row
+        myVC.cities = self.cities
         navigationController?.pushViewController(myVC, animated: true)
         
         print(indexPath.row)
@@ -236,7 +238,7 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             fetchCountryAndCity(location: location) { country, city in
                 print("country:", country)
                 print("city:", city)
-                self.cityCurrent = City(name: city, lat: String(self.currentlat), lon: String(self.currentlong))
+                self.cityCurrent = City(name: city + ", " + country, lat: String(self.currentlat), lon: String(self.currentlong))
             }
         }
     }
@@ -313,15 +315,19 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     
     @IBAction func AddCurrentCity(_ sender: Any) {
 //        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        cities.removeAll()
+       loadData()
+        self.tableView.reloadData()
         var isExist = false
         for city in self.cities{
             if (city.name == cityCurrent.name) {
                 isExist = true
+                break
             }
         }
-        if (cities != nil && isExist) {
+        if ((cities != nil && isExist) || cityCurrent == nil) {
             var style = ToastStyle()
-            self.view.makeToast("City already been added", duration: 3.0, position: .bottom, style: style)
+            self.view.makeToast("City already been added", duration: 1.0, position: .bottom, style: style)
         } else {
             cities.append(cityCurrent)
             self.saveCities()

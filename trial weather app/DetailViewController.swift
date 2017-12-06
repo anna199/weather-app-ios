@@ -23,14 +23,38 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     var apiKey : String!
     var responseWeatherApi : ResponseOpenWeatherMapProtocol!
     let defaults = UserDefaults.standard
-
+    
+    var cursor : Int!
     var items : [String] = []
     var dayItems : [String] = []
     var currentCity : City!
+    var cities: [City]!
     var city: City = City(name: "San Jose, CA, United States", lat: "37.3382082", lon: "-121.8863286")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        self.loadData()
+       
+     
+        hourCollectionView.delegate = self
+        hourCollectionView.dataSource = self
+        hourCollectionView.backgroundColor = UIColor.clear
+        
+        dayCollectionView.delegate = self
+        dayCollectionView.dataSource = self
+        dayCollectionView.backgroundColor = UIColor.clear
+        
+    }
+    func loadData(){
         var fullNameArr = city.name.components(separatedBy: ",")
         var firstName: String = fullNameArr[0]
         if (firstName == currentCity.name){
@@ -39,12 +63,12 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         else {
             cityNameLabel.text = firstName
         }
-        
         let dateFormatterForDetail = DateFormatter()
+        if (city.timeZoneId != nil) {
         dateFormatterForDetail.timeZone = NSTimeZone(name: (city.timeZoneId))! as TimeZone
         dateFormatterForDetail.dateFormat = "EEE, MMM d, y"
         dateLabel.text = dateFormatterForDetail.string(from : Date())
-        
+        }
         dateFormatterForDetail.dateFormat = "HH"
         let curHour : String = dateFormatterForDetail.string(from : Date())
         
@@ -70,20 +94,48 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         self.items += prepareItems()
         self.dayItems += prepareDayItems()
-     
-        hourCollectionView.delegate = self
-        hourCollectionView.dataSource = self
-        hourCollectionView.backgroundColor = UIColor.clear
-        
-        dayCollectionView.delegate = self
-        dayCollectionView.dataSource = self
-        dayCollectionView.backgroundColor = UIColor.clear
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     }
 
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                if (cursor > 0  ) {
+                    cursor = cursor - 1
+                    city = cities[cursor]
+                    self.items.removeAll()
+                    self.dayItems.removeAll()
+                    loadData()
+                    self.dayCollectionView.reloadData()
+                    self.hourCollectionView.reloadData()
+                    print("Swiped right")
+                }
+                break
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
+                if (cursor < cities.count - 1) {
+                    cursor = cursor + 1
+                    city = cities[cursor]
+                    self.items.removeAll()
+                    self.dayItems.removeAll()
+                    loadData()
+                    self.dayCollectionView.reloadData()
+                    self.hourCollectionView.reloadData()
+                }
+                print("Swiped left")
+                break
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
+    }
 
     func prepareItems() ->[String] {
         weatherAPI = OpenWeatherMapAPI(apiKey: "b4631e5c54e1a3a9fdda89fca90d4114", forType: OpenWeatherMapType.Forecast)

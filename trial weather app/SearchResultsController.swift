@@ -82,9 +82,13 @@ class SearchResultsController: UITableViewController {
                     let name = self.searchResults[indexPath.row]
                     print(lat, lon, self.searchResults[indexPath.row])
                     let newCity = City(name: name, lat: String(lat), lon: String(lon))
+                    self.cities = self.loadCities()!
                     var isExist = false
                     for city in self.cities{
-                        if (city.name == name) {
+                        var fullNameArr = city.name.components(separatedBy: ",")
+                        var firstName: String = fullNameArr[0]
+                        
+                        if (name.contains(firstName)) {
                             isExist = true
                         }
                     }
