@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 protocol LocateOnTheMap{
     func locateWithLongitude(_ lon:Double, andLatitude lat:Double, andTitle title: String)
@@ -89,6 +90,8 @@ class SearchResultsController: UITableViewController {
                         var firstName: String = fullNameArr[0]
                         
                         if (name.contains(firstName)) {
+                            var style = ToastStyle()
+                            self.view.makeToast("City already been added", duration: 3.0, position: .bottom, style: style)
                             isExist = true
                         }
                     }
