@@ -86,14 +86,13 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
         var dayItems : [String] = ["", "", "",
                                  "", "", "",
                                  "", "", "",
-                                 "", "", "",
                                  "", "", ""]
         
         let list = self.rawData["list"] as! NSArray
         
-        let cntPerDayHalf = list.count / 5 / 2
+        let cntPerDayHalf = list.count / 4 / 2
         
-        for i in 0...4 {
+        for i in 0...3 {
             let dayData = list[i + cntPerDayHalf] as! NSDictionary
             let statusObj = dayData["weather"] as! NSArray
             let array0 = statusObj[0] as! NSDictionary
