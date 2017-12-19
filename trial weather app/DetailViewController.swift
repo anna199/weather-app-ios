@@ -66,7 +66,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         let dateFormatterForDetail = DateFormatter()
         if (city.timeZoneId != nil) {
         dateFormatterForDetail.timeZone = NSTimeZone(name: (city.timeZoneId))! as TimeZone
-        dateFormatterForDetail.dateFormat = "EEE, MMM d, y"
+        dateFormatterForDetail.dateFormat = "EEE, MMM d"
         dateLabel.text = dateFormatterForDetail.string(from : Date())
         }
         dateFormatterForDetail.dateFormat = "HH"

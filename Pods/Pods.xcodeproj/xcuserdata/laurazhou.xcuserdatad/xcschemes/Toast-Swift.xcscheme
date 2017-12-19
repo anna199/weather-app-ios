@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F98E9201B353FBB6E5541118CF7E5D3B"
-               BuildableName = "Pods_trial_weather_app.framework"
-               BlueprintName = "Pods-trial weather app"
+               BlueprintIdentifier = "82C75C547C2D1BEBD040D1CC2E824A73"
+               BuildableName = "Toast_Swift.framework"
+               BlueprintName = "Toast-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F98E9201B353FBB6E5541118CF7E5D3B"
-            BuildableName = "Pods_trial_weather_app.framework"
-            BlueprintName = "Pods-trial weather app"
+            BlueprintIdentifier = "82C75C547C2D1BEBD040D1CC2E824A73"
+            BuildableName = "Toast_Swift.framework"
+            BlueprintName = "Toast-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
