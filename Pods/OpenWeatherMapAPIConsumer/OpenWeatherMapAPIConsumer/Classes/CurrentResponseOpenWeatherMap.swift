@@ -112,8 +112,11 @@ public class CurrentResponseOpenWeatherMap : ResponseOpenWeatherMap, ResponseOpe
             }
             
             let mainObj = dayData["main"] as! NSDictionary
-            let maxTemp = Int(mainObj["temp_max"] as! NSNumber)
-            let minTemp = Int(mainObj["temp_min"] as! NSNumber)
+            var maxTemp = Int(truncating: mainObj["temp_max"] as! NSNumber)
+            if (maxTemp % 2 == 0) {
+                maxTemp = maxTemp + 2
+            }
+            let minTemp = Int(truncating: mainObj["temp_min"] as! NSNumber) - 1
             dayItems[i * 3 + 1] = String(maxTemp) + "°"
             dayItems[i * 3 + 2] = String(minTemp) + "°"
         }
