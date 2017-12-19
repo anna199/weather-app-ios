@@ -322,10 +322,15 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
        loadData()
         self.tableView.reloadData()
         var isExist = false
-        for city in self.cities{
-            if (city.name == cityCurrent.name) {
-                isExist = true
-                break
+        if (cityCurrent == nil) {
+            var style = ToastStyle()
+            self.view.makeToast("City already been added", duration: 1.0, position: .bottom, style: style)
+        } else {
+            for city in self.cities{
+                if (city.name == cityCurrent.name) {
+                    isExist = true
+                    break
+                }
             }
         }
         if ((cities != nil && isExist) || cityCurrent == nil) {

@@ -57,7 +57,9 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     func loadData(){
         var fullNameArr = city.name.components(separatedBy: ",")
         var firstName: String = fullNameArr[0]
-        if (firstName == currentCity.name){
+        var fullNameArr2 = currentCity.name.components(separatedBy: ",")
+        var firstName2: String = fullNameArr2[0]
+        if (firstName == firstName2){
             cityNameLabel.text = firstName + " (You are here)"
         }
         else {
