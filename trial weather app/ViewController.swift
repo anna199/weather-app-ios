@@ -369,14 +369,10 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         loadData()
         self.tableView.reloadData()*/
         DispatchQueue.main.async { () -> Void in
-            var temp = self.cities.count;
+            // var temp = self.cities.count;
             self.cities.removeAll()
             self.loadData2(citiesCount: 0)
             self.tableView.reloadData()
-            if (temp == self.cities.count) {
-                var style = ToastStyle()
-                self.view.makeToast("City already been added", duration: 3.0, position: .bottom, style: style)
-            }
         }
     }
     
